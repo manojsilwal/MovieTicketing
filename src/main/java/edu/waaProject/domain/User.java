@@ -15,6 +15,14 @@ public class User {
 	@GeneratedValue
 	private int id;
 	
+	public List<Booking> getBooking() {
+		return booking;
+	}
+
+	public void setBooking(List<Booking> booking) {
+		this.booking = booking;
+	}
+
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Booking> booking;
 

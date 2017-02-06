@@ -9,8 +9,8 @@ import edu.waaProject.domain.User;
 import edu.waaProject.repository.UserDao;
 
 @Service
-public class UserServiceImpl implements UserService{
-	
+public class UserServiceImpl implements UserService {
+
 	@Autowired
 	UserDao userDao;
 
@@ -25,12 +25,23 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return userDao.findAll();
 	}
+
 	@Override
 	public void save(User user) {
 		// TODO Auto-generated method stub
 		userDao.save(user);
 	}
-	
-	
-	
+
+	@Override
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		userDao.delete(id);
+	}
+
+	@Override
+	public void update(User user) {
+		// TODO Auto-generated method stub
+		userDao.save(user);
+	}
+
 }

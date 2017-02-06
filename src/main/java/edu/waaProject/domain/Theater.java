@@ -17,6 +17,14 @@ public class Theater {
 	@OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
 	private List<Tickets> tickets;
 
+	public int getTheaterId() {
+		return theaterId;
+	}
+
+	public void setTheaterId(int theaterId) {
+		this.theaterId = theaterId;
+	}
+
 	public List<Tickets> getTickets() {
 		return tickets;
 	}
