@@ -7,8 +7,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,9 +16,9 @@ public class Show {
 	@GeneratedValue
 	private long showId;
 
-	@ManyToOne
+	/*@ManyToOne
 	@JoinColumn(name = "movieId")
-	private Movie movie;
+	private Movie movie;*/
 
 	@OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
 	private List<Tickets> tickets;
@@ -29,13 +27,13 @@ public class Show {
 	private Date startTime;
 	private Date endTime;
 
-	public Movie getMovie() {
+	/*public Movie getMovie() {
 		return movie;
 	}
 
 	public void setMovie(Movie movie) {
 		this.movie = movie;
-	}
+	}*/
 
 	public List<Tickets> getTickets() {
 		return tickets;
