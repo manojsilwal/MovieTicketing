@@ -1,26 +1,55 @@
 package edu.waaProject.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 @Entity
 public class User {
 	@Id
 	@GeneratedValue
 	private int id;
 	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Booking> booking;
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	private String email;
+
 	private String username;
-	
+
 	private String password;
 
 	private boolean enabled;
-	
+
 	private String role;
-	public User() {
-		
+
+	@Embedded
+	private Address address;
+
+	public Address getAddress() {
+		return address;
 	}
-	
-	
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public User() {
+
+	}
 
 	public User(int id, String name, String password, boolean enabled, String role) {
 		super();
@@ -30,43 +59,29 @@ public class User {
 		this.role = role;
 	}
 
-
-
 	public String getRole() {
 		return role;
 	}
-
-
 
 	public void setRole(String role) {
 		this.role = role;
 	}
 
-
-
 	public boolean isEnabled() {
 		return enabled;
 	}
-
-
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 
-
-
 	public int getId() {
 		return id;
 	}
 
-
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
-
 
 	public String getPassword() {
 		return password;
