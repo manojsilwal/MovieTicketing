@@ -8,27 +8,25 @@
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>WEB-INF/dispatcher-config.xml
-				WEB-INF/spring-config.xml
+			<param-value>
+				/WEB-INF/dispatcher-config.xml
+				/WEB-INF/spring-config.xml
 			</param-value>
 		</init-param>
+		
 		<load-on-startup>1</load-on-startup>
+		
 	</servlet>
-	
+
+
 	<!-- Map all requests to the DispatcherServlet for handling -->
 	<servlet-mapping>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-    		/WEB-INF/spring-config.xml
- 		</param-value>
-	</context-param>
 	
 	
 </web-app>
