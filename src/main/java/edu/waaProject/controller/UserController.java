@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.waaProject.domain.User;
 import edu.waaProject.service.UserService;
-
+//added
 @RestController
 public class UserController {
 	@Autowired

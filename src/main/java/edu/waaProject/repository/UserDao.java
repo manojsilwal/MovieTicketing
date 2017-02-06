@@ -9,6 +9,6 @@ import edu.waaProject.domain.User;
 @Repository
 public interface UserDao extends JpaRepository<User, Integer>{
 		public User findByUsername(String username);
-		
+		//added
 		public User findById(int id);
 }

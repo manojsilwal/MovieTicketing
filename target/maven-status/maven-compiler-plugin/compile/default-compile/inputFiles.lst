@@ -11,6 +11,7 @@ E:\SpringProjects\MovieTicketing\src\main\java\edu\waaProject\service\MovieServi
 E:\SpringProjects\MovieTicketing\src\main\java\edu\waaProject\domain\User.java
 E:\SpringProjects\MovieTicketing\src\main\java\edu\waaProject\repository\MovieDao.java
 E:\SpringProjects\MovieTicketing\src\main\java\edu\waaProject\service\UserServiceImpl.java
+E:\SpringProjects\MovieTicketing\src\main\java\edu\waaProject\controller\TicketController.java
 E:\SpringProjects\MovieTicketing\src\main\java\edu\waaProject\domain\Tickets.java
 E:\SpringProjects\MovieTicketing\src\main\java\edu\waaProject\domain\Booking.java
 E:\SpringProjects\MovieTicketing\src\main\java\edu\waaProject\repository\UserDao.java

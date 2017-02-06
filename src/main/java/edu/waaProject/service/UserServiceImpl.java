@@ -10,7 +10,7 @@ import edu.waaProject.repository.UserDao;
 
 @Service
 public class UserServiceImpl implements UserService {
-
+	//added
 	@Autowired
 	UserDao userDao;
 
