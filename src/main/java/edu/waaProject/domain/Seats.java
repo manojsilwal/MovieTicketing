@@ -18,6 +18,14 @@ public class Seats {
 	@JoinColumn(name = "ticketNo")
 	private Tickets tickets;
 
+	public Tickets getTickets() {
+		return tickets;
+	}
+
+	public void setTickets(Tickets tickets) {
+		this.tickets = tickets;
+	}
+
 	public int getSeatId() {
 		return seatId;
 	}

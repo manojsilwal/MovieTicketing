@@ -28,6 +28,33 @@ public class Tickets {
 	@ManyToOne
 	@JoinColumn(name = "bookingId")
 	private Booking booking;
+	@ManyToOne
+	@JoinColumn(name = "showId")
+	private Show show;
+
+	public List<Seats> getSeats() {
+		return seats;
+	}
+
+	public void setSeats(List<Seats> seats) {
+		this.seats = seats;
+	}
+
+	public Booking getBooking() {
+		return booking;
+	}
+
+	public void setBooking(Booking booking) {
+		this.booking = booking;
+	}
+
+	public Show getShow() {
+		return show;
+	}
+
+	public void setShow(Show show) {
+		this.show = show;
+	}
 
 	public int getTicketNo() {
 		return ticketNo;
