@@ -6,7 +6,7 @@ import java.util.List;
 import edu.waaProject.domain.Movie;
 
 public interface MovieService {
-	void save(Movie movie);
+	Movie save(Movie movie);
 
 	void delete(Long movieId);
 
