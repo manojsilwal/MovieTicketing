@@ -1,34 +1,51 @@
 package edu.waaProject.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import edu.waaProject.domain.User;
 import edu.waaProject.service.UserService;
-
-
-@Controller
+//added
+@RestController
 public class UserController {
 	@Autowired
 	UserService userService;
 
-		
-	@RequestMapping(value="/saveUser", method=RequestMethod.POST)
-	public String saveUser(User user, Model model){
-		userService.save(user);
-		return "redirect:/users";
+	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	public ResponseEntity<List<User>> getUsers() {
+		List<User> users = userService.findAll();
+		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
-	
-	@RequestMapping(value="/users", method=RequestMethod.GET)
-	public String addUser(User user, Model model){
-		model.addAttribute("users",userService.findAll());
+
+	@RequestMapping(value = "/users", method = RequestMethod.POST)
+	public String addUser(@RequestBody User user) {
+		userService.save(user);
+		return null;
+	}
+
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
+	public User getUser(@PathVariable("id") int id) {
+		return userService.findById(id);
+	}
+
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
+	public String deleteUser(@PathVariable("id") int id) {
+		userService.delete(id);
 		return "users";
 	}
-	@RequestMapping(value="/addUser", method=RequestMethod.GET)
-	public String addUserPage(User user, Model model){
-		return "addUser";
+
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
+	public String updateUser(@PathVariable("id") int id, @RequestBody User user) {
+		user.setId(id);
+		userService.save(user);
+		return "users";
 	}
 }
