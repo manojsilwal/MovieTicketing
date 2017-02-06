@@ -13,4 +13,6 @@ public interface MovieService {
 	Movie findByMovieName(String movieName);
 	
 	List<Movie> findAll();
+	
+	Movie findByMovieId(long movieId);
 }

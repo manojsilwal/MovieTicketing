@@ -38,4 +38,10 @@ public class MovieServiceImpl implements MovieService {
 		return movieDao.findAll();
 	}
 
+	@Override
+	public Movie findByMovieId(long movieId) {
+		// TODO Auto-generated method stub
+		return movieDao.findByMovieId(movieId);
+	}
+
 }

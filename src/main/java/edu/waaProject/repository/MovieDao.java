@@ -8,5 +8,6 @@ import edu.waaProject.domain.Movie;
 
 public interface MovieDao extends JpaRepository<Movie, Long> {
 	Movie findByMovieName(String movieName);
+	Movie findByMovieId(long movieId);
 	List<Movie> findAll();
 }

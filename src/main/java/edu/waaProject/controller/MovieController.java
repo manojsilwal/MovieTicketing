@@ -19,8 +19,14 @@ public class MovieController {
 
 	@RequestMapping(value = "/movies", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<Movie> getMovies() {
-		
+
 		return movieService.findAll();
+	}
+
+	@RequestMapping(value = "/movies/{movieId}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public Movie getMovie(@PathVariable("movieId") long movieId) {
+
+		return movieService.findByMovieId(movieId);
 	}
 
 	@RequestMapping(value = "/movies", method = RequestMethod.POST, headers = "Accept=application/json")
@@ -38,7 +44,7 @@ public class MovieController {
 		return null;
 
 	}
-	
+
 	@RequestMapping(value = "/movies", method = RequestMethod.PUT, headers = "Accept=application/json")
 	public Movie updateMovie(@RequestBody Movie movie) {
 		String movieId = "";
@@ -54,11 +60,11 @@ public class MovieController {
 		return null;
 
 	}
-	
+
 	@RequestMapping(value = "/movies/{movieId}", method = RequestMethod.DELETE, headers = "Accept=application/json")
 	public void deleteMovie(@PathVariable Long movieId) {
 		try {
-			
+
 			System.out.println("Data deleted successfully with id :" + movieId);
 			movieService.delete(movieId);
 
