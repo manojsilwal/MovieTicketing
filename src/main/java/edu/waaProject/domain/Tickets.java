@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Tickets {
@@ -34,6 +35,7 @@ public class Tickets {
 	private Booking booking;
 	@ManyToOne
 	@JoinColumn(name = "showId")
+	@JsonIgnoreProperties("tickets")
 	private Show show;
 
 	public List<Seats> getSeats() {

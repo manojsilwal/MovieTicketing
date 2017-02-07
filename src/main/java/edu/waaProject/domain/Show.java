@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -12,27 +13,28 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity(name="movieShow")
-public class Show{
+@Entity(name = "movieShow")
+public class Show {
 
 	@Id
 	@GeneratedValue
 	private long showId;
 
-	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "movieId")
+	@JsonIgnoreProperties("show")
 	private Movie movie;
 
-	@OneToMany(mappedBy = "show")
+	@OneToMany(mappedBy = "show", fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("show")
 	private List<Tickets> tickets;
 
 	private String language;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date startTime;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date endTime;
 
 	public Movie getMovie() {

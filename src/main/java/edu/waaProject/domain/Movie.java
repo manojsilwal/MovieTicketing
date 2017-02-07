@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Movie {
@@ -22,6 +22,7 @@ public class Movie {
 
 
 	@OneToMany(mappedBy = "movie",fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("movie")
 	private List<Show> show;
 
 	private String movieName;
@@ -32,7 +33,6 @@ public class Movie {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> actors;
 
-	@JsonIgnore
 	public List<Show> getShow() {
 		return show;
 	}
