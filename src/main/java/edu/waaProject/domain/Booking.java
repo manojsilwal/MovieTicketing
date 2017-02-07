@@ -3,9 +3,9 @@ package edu.waaProject.domain;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Booking {
@@ -20,10 +21,12 @@ public class Booking {
 	@Id
 	@GeneratedValue
 	private int bookingId;
-	@OneToMany(mappedBy = "booking")
+	@OneToMany(mappedBy = "booking",fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("booking")
 	private List<Tickets> tickets;
 	@ManyToOne
 	@JoinColumn(name = "id")
+	@JsonIgnoreProperties("booking")
 	private User user;
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date bookingDate;
