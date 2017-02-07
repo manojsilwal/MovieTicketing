@@ -35,11 +35,8 @@
 			Release Date :<input id="releaseDate" type="date"
 				data-ng-model="movie.releaseDate">
 		</p>
-		
-		<p>Select Image :<input type = "file" file-model = "myFile"/></p>
-		
 		<input type="submit" id="submit" value="Submit" /><br>
-		
+
 		<h4>You submitted below data through post:</h4>
 		<pre>Form data ={{list}}</pre>
 	</form>

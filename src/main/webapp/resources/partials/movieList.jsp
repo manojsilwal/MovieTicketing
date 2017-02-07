@@ -6,7 +6,7 @@
 					<div>
 						<a href="#/movies/{{$index}}">
 							<p>Name: {{movie.movieName}}</p>
-						</a>
+						</a>s
 						<button data-ng-click="delete(movie.movieId)">Delete</button>
 						<button data-ng-click="update($index)">Update</button>
 					</div>

@@ -17,14 +17,16 @@ public class Show{
 	@Id
 	@GeneratedValue
 	private long showId;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "movieId")
 	private Movie movie;
 
 	@OneToMany(mappedBy = "show")
 	private List<Tickets> tickets;
-
+	
+	private int totalAvailableSheet;
+	
 	private String language;
 	private Date startTime;
 	private Date endTime;
@@ -76,5 +78,15 @@ public class Show{
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
+
+	public int getTotalAvailableSheet() {
+		return totalAvailableSheet;
+	}
+
+	public void setTotalAvailableSheet(int totalAvailableSheet) {
+		this.totalAvailableSheet = totalAvailableSheet;
+	}
+	
+	
 
 }

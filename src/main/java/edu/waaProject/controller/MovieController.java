@@ -1,7 +1,14 @@
 package edu.waaProject.controller;
 
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +34,19 @@ public class MovieController {
 	public Movie getMovie(@PathVariable("movieId") long movieId) {
 
 		return movieService.findByMovieId(movieId);
+	}
+	
+	@RequestMapping(value = "/image/{movieId}", method = RequestMethod.GET)
+	public void getImageForProduct(@PathVariable("movieId") int movieId, HttpServletResponse response) 
+	          throws ServletException, IOException {
+		
+		System.out.println("getting image");
+		
+		Movie movie = movieService.findByMovieId(movieId);
+	    response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
+	    ServletOutputStream out = response.getOutputStream();
+	    out.write(movie.getImage());
+	    out.close();
 	}
 
 	@RequestMapping(value = "/movies", method = RequestMethod.POST, headers = "Accept=application/json")

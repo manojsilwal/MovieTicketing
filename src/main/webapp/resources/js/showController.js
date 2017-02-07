@@ -1,12 +1,12 @@
 var movie = angular.module("movieTicketingApp");
 
-movie.service("movieService", movieService);
+movie.service("showService", movieService);
  
 movieService.$inject = ['$http'];
 
-movie.controller("movieController", movieController);
+movie.controller("showController", movieController);
 
-movieController.$inject = ['$scope','$http', 'movieService','$routeParams'];
+movieController.$inject = ['$scope','$http', 'showService','$routeParams'];
 
 
 function movieController($scope, $http, movieService, $routeParams){
@@ -14,8 +14,6 @@ function movieController($scope, $http, movieService, $routeParams){
 	$scope.list = [];
 	$scope.whichMovie = $routeParams.movieId;
 	$scope.movies = [];
-	
-	
 	
 	$scope.selectedMovie = $scope.movies[$scope.whichMovie];
 	
