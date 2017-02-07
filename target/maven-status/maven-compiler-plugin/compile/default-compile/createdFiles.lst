@@ -2,6 +2,7 @@ edu\waaProject\controller\TicketController.class
 edu\waaProject\controller\MovieController.class
 edu\waaProject\domain\Seats.class
 edu\waaProject\domain\Show.class
+edu\waaProject\service\TicketService.class
 edu\waaProject\domain\Movie.class
 edu\waaProject\service\UserService.class
 edu\waaProject\repository\UserDao.class
@@ -11,9 +12,11 @@ edu\waaProject\service\UserServiceImpl.class
 edu\waaProject\repository\MovieDao.class
 edu\waaProject\domain\Address.class
 edu\waaProject\domain\Theater.class
+edu\waaProject\repository\TicketsDao.class
 edu\waaProject\domain\Booking.class
 edu\waaProject\service\MovieServiceImpl.class
 edu\waaProject\domain\User.class
 edu\waaProject\domain\BookingStatus.class
 edu\waaProject\controller\HomeController.class
 edu\waaProject\controller\UserController.class
+edu\waaProject\service\TicketServiceImpl.class

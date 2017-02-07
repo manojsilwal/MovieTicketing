@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -14,7 +15,7 @@ public class Theater {
 	@Id
 	@GeneratedValue
 	private int theaterId;
-	@OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "theater", fetch = FetchType.EAGER)
 	private List<Tickets> tickets;
 
 	public int getTheaterId() {
