@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="resources/css/bootstrap-theme.min.css">
 
 
+
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -27,6 +28,7 @@
 		<li><a href="#/">Home</a></li>
 		<li><a href="#/addMovie">Add Movie</a></li>
 		<li><a href="#/movies">Movie List</a></li>
+<<<<<<< HEAD
 	</ul> -->
 
 	<!-- start of nav -->
@@ -52,8 +54,8 @@
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">User <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Add</a></li>
-						<li><a href="#">User List</a></li>
+						<li><a href="#/addUser">Add</a></li>
+						<li><a href="#/users">User List</a></li>
 
 					</ul></li>
 
@@ -73,8 +75,6 @@
 	</div>
 	<!-- /.container-fluid --> </nav>
 
-	<!-- start of nav -->
-
 	<div ng-view></div>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<!-- bootstrap js -->
@@ -86,8 +86,7 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
 	<script src="resources/js/app.js"></script>
-
-
+    <script src="resources/js/userController.js"></script>
 	<script src="resources/js/movieController.js"></script>
 
 

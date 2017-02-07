@@ -1,7 +1,6 @@
 <div>
         <div>
         	<h1>{{header}}</h1>
-            <button data-ng-click="getMovies()">Get Person data from server</button>
             <ul>
 				<li ng-repeat="movie in movies">
 					<div>

@@ -18,13 +18,12 @@ import edu.waaProject.service.UserService;
 public class UserController {
 	@Autowired
 	UserService userService;
-
 	/**
 	 * this method is use to list the all user list.
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	@RequestMapping(value = "/user", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<User> getUsers() {
 
 		try {
@@ -53,12 +52,16 @@ public class UserController {
 			System.out.println("Successfully added user  with id: " +userId);
 			return userService.save(user);
 
-		} catch (Exception e) {
+		} 
+		catch (Exception e) {
 			System.err.println("Error in added user with id: " +userId);
 			return null;
-
 		}
+	}
 
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET,  headers = "Accept=application/json")
+	public User getUser(@PathVariable("id") int id) {
+		return userService.findByUserId(id);
 	}
 	
 	
