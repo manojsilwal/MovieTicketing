@@ -1,22 +1,21 @@
 package edu.waaProject.domain;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity
-@Table(name = "movieShow")
-public class Show {
+@Entity(name="movieShow")
+public class Show{
 
 	@Id
 	@GeneratedValue
@@ -27,8 +26,8 @@ public class Show {
 	@JoinColumn(name = "movieId")
 	private Movie movie;
 
-	@OneToOne(mappedBy = "show", cascade = CascadeType.ALL)
-	private Tickets tickets;
+	@OneToMany(mappedBy = "show")
+	private List<Tickets> tickets;
 
 	private String language;
 	@JsonFormat(pattern="yyyy-MM-dd")
@@ -44,11 +43,11 @@ public class Show {
 		this.movie = movie;
 	}
 
-	public Tickets getTickets() {
+	public List<Tickets> getTickets() {
 		return tickets;
 	}
 
-	public void setTickets(Tickets tickets) {
+	public void setTickets(List<Tickets> tickets) {
 		this.tickets = tickets;
 	}
 

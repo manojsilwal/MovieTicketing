@@ -10,38 +10,34 @@ import edu.waaProject.repository.UserDao;
 
 @Service
 public class UserServiceImpl implements UserService {
-	//added
+	
 	@Autowired
-	UserDao userDao;
+	private UserDao userDao;
 
 	@Override
-	public User findById(int id) {
-		// TODO Auto-generated method stub
-		return userDao.findById(id);
+	public User save(User user) {
+		return userDao.save(user);
+	}
+
+	@Override
+	public void delete(int userId) {
+		userDao.delete(userId);
+	}
+
+	@Override
+	public User findByUserName(String userName) {
+		return userDao.findByUsername(userName);
 	}
 
 	@Override
 	public List<User> findAll() {
-		// TODO Auto-generated method stub
 		return userDao.findAll();
 	}
 
 	@Override
-	public void save(User user) {
-		// TODO Auto-generated method stub
-		userDao.save(user);
+	public User findByUserId(int userId) {
+		return userDao.findById(userId);
 	}
-
-	@Override
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		userDao.delete(id);
-	}
-
-	@Override
-	public void update(User user) {
-		// TODO Auto-generated method stub
-		userDao.save(user);
-	}
+	
 
 }

@@ -20,7 +20,7 @@ public class Booking {
 	@Id
 	@GeneratedValue
 	private int bookingId;
-	@OneToMany(mappedBy = "booking", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "booking")
 	private List<Tickets> tickets;
 	@ManyToOne
 	@JoinColumn(name = "id")

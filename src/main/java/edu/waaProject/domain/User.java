@@ -5,16 +5,49 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 //added
 @Entity
 public class User {
 	@Id
 	@GeneratedValue
 	private int id;
+
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Booking> booking;
 	
+	private String email;
+
+	private String username;
+	
+	private String password;
+
+	private boolean enabled=true;
+
+	
+	public User(int id, List<Booking> booking, String email, String username, String password, boolean enabled,
+			Address address) {
+		super();
+		this.id = id;
+		this.booking = booking;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.address = address;
+	}
+
+	@Embedded
+	private Address address;
+	
+	//starting getter and setter
+
 	public List<Booking> getBooking() {
 		return booking;
 	}
@@ -22,9 +55,6 @@ public class User {
 	public void setBooking(List<Booking> booking) {
 		this.booking = booking;
 	}
-
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private List<Booking> booking;
 
 	public String getEmail() {
 		return email;
@@ -34,18 +64,7 @@ public class User {
 		this.email = email;
 	}
 
-	private String email;
-
-	private String username;
-
-	private String password;
-
-	private boolean enabled;
-
-	private String role;
-
-	@Embedded
-	private Address address;
+	
 
 	public Address getAddress() {
 		return address;
@@ -59,21 +78,9 @@ public class User {
 
 	}
 
-	public User(int id, String name, String password, boolean enabled, String role) {
-		super();
-		this.username = name;
-		this.password = password;
-		this.enabled = enabled;
-		this.role = role;
-	}
+	
 
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
+	
 
 	public boolean isEnabled() {
 		return enabled;

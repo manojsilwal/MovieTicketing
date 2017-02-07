@@ -3,7 +3,6 @@ package edu.waaProject.domain;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,13 +20,14 @@ public class Movie {
 	@GeneratedValue
 	private long movieId;
 
-	
-	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+	@OneToMany(mappedBy = "movie",fetch = FetchType.EAGER)
 	private List<Show> show;
 
 	private String movieName;
 	private String director;
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date releaseDate;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> actors;

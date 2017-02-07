@@ -5,18 +5,30 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Theater {
 	@Id
 	@GeneratedValue
 	private int theaterId;
-	@OneToMany(mappedBy = "theater", fetch = FetchType.EAGER)
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
 	private List<Tickets> tickets;
+
+	private String tname;
+
+	@Embedded
+	private Address address;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	@JsonIgnore
+	private List<Seats> seats;
 
 	public int getTheaterId() {
 		return theaterId;
@@ -26,6 +38,7 @@ public class Theater {
 		this.theaterId = theaterId;
 	}
 
+	
 	public List<Tickets> getTickets() {
 		return tickets;
 	}
@@ -34,11 +47,6 @@ public class Theater {
 		this.tickets = tickets;
 	}
 
-	private String tname;
-
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Seats> seats;
-
 	public List<Seats> getSeats() {
 		return seats;
 	}
@@ -46,9 +54,6 @@ public class Theater {
 	public void setSeats(List<Seats> seats) {
 		this.seats = seats;
 	}
-
-	@Embedded
-	private Address address;
 
 	public int gettId() {
 		return theaterId;
