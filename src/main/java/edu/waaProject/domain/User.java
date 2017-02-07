@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 //added
 @Entity
 public class User {
@@ -17,6 +19,7 @@ public class User {
 	private int id;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Booking> booking;
 	
 	private String email;
@@ -25,10 +28,20 @@ public class User {
 	
 	private String password;
 
-	private boolean enabled;
+	private boolean enabled=true;
 
-	@Enumerated
-	private Role role;
+	
+	public User(int id, List<Booking> booking, String email, String username, String password, boolean enabled,
+			Address address) {
+		super();
+		this.id = id;
+		this.booking = booking;
+		this.email = email;
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.address = address;
+	}
 
 	@Embedded
 	private Address address;
