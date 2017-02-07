@@ -3,6 +3,8 @@ package edu.waaProject.domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -29,6 +31,7 @@ public class Movie {
 		this.image = image;
 	}
 
+
 	@OneToMany(mappedBy = "movie",fetch = FetchType.EAGER)
 	@JsonIgnoreProperties("movie")
 	private List<Show> show;
@@ -40,6 +43,9 @@ public class Movie {
 	private byte[] image;
 	
 	@JsonFormat(pattern="yyyy-MM-dd")
+	@Column(length = 100000)
+	private String description;
+	
 	private Date releaseDate;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> actors;
@@ -62,6 +68,14 @@ public class Movie {
 
 	public String getMovieName() {
 		return movieName;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public void setMovieName(String movieName) {

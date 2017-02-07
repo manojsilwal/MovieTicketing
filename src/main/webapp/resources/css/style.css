@@ -4,3 +4,10 @@
 	margin: 0 auto;
 }
 
+.ng-scope {
+    display: inline;
+}
+
+.movie-details {
+    padding-top: 20px;
+}
