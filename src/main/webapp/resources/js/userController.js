@@ -11,7 +11,7 @@ userController.$inject = ['$scope','$http', 'userService','$routeParams'];
 function userController($scope, $http, userService, $routeParams){
 	$scope.header = "User";
 	$scope.list = [];
-	/*$scope.whichUser = $routeParams.userId;*/
+	$scope.whichUser = $routeParams.userId;
 	$scope.users = [];	
 		
 	//delete movies
@@ -96,7 +96,7 @@ function userService($http){
 		
 	service.getUsers = function() {   
 		console.log("getUsers service");
-        return $http({method: 'GET', url: 'users'});
+        return $http({method: 'GET', url: 'user'});
 	}
     
     service.submit = function(movie) {
@@ -105,7 +105,7 @@ function userService($http){
     
 	service.delete = function(index){
 		console.log("service"+index);
-		return $http.delete('users/'+index);
+		return $http.delete('user/'+index);
 	}
 	
 	service.update = function(movie){
