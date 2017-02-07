@@ -3,7 +3,6 @@ package edu.waaProject.domain;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +12,7 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Movie {
@@ -30,6 +30,7 @@ public class Movie {
 	}
 
 	@OneToMany(mappedBy = "movie",fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("movie")
 	private List<Show> show;
 
 	private String movieName;

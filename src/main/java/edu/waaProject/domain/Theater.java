@@ -16,7 +16,7 @@ public class Theater {
 	@Id
 	@GeneratedValue
 	private int theaterId;
-	
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
 	private List<Tickets> tickets;

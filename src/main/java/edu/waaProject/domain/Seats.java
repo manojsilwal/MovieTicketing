@@ -12,7 +12,7 @@ public class Seats {
 	@GeneratedValue
 	private int seatId;
 	private String seatName;
-	private String noOfSeats;
+	private boolean avialable;
 
 	@ManyToOne
 	@JoinColumn(name = "ticketNo")
@@ -42,11 +42,11 @@ public class Seats {
 		this.seatName = seatName;
 	}
 
-	public String getNoOfSeats() {
-		return noOfSeats;
+	public boolean isAvialable() {
+		return avialable;
 	}
 
-	public void setNoOfSeats(String noOfSeats) {
-		this.noOfSeats = noOfSeats;
+	public void setAvialable(boolean avialable) {
+		this.avialable = avialable;
 	}
 }

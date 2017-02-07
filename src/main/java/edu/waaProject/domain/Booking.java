@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Booking {
 
@@ -23,6 +25,7 @@ public class Booking {
 	@ManyToOne
 	@JoinColumn(name = "id")
 	private User user;
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date bookingDate;
 	@Enumerated
 	private BookingStatus bookingStatus;
