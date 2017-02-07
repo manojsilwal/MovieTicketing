@@ -19,10 +19,10 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	public ResponseEntity<List<User>> getUsers() {
-		List<User> users = userService.findAll();
-		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
+	@RequestMapping(value = "/users", method = RequestMethod.GET,  headers = "Accept=application/json")
+	public List<User> getUsers() {
+		System.out.println(userService.findAll());
+		return userService.findAll();
 	}
 
 	@RequestMapping(value = "/users", method = RequestMethod.POST)
@@ -31,7 +31,7 @@ public class UserController {
 		return null;
 	}
 
-	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET,  headers = "Accept=application/json")
 	public User getUser(@PathVariable("id") int id) {
 		return userService.findById(id);
 	}

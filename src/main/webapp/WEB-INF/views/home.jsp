@@ -17,14 +17,21 @@
             <li><a href="#/">Home</a></li>
             <li><a href="#/addMovie">Add Movie</a></li>
             <li><a href="#/movies">Movie List</a></li>
+            
+            <li><a href="#/users">User List</a></li>
+            <li><a href="#/addUser">Add User</a></li>
+              
         </ul>
          
         <div ng-view></div>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
-        <script src="resources/js/app.js"></script>
-        <script src="resources/js/movieController.js"></script>
-     
+        
+        
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
+   <script src="resources/js/app.js"></script>
+   <script src="resources/js/movieController.js"></script>
+    <script src="resources/js/userController.js"></script>
+
      
     </body>
 </html>

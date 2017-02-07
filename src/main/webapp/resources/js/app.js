@@ -18,10 +18,29 @@ angular.module('movieTicketingApp',['ngRoute'])
 		templateUrl:'resources/partials/movie.jsp',
 		controller : 'movieController'
 	})
-	.when('/updateMovie/:movieId',{
-		templateUrl:'resources/partials/addMovie.jsp',
-		controller : 'movieController'
+	
+	
+	.when('/users',{
+		templateUrl:'resources/partials/userList.jsp',
+		controller : 'userController'
 	})
+	
+	.when('/addUser',{
+		templateUrl:'resources/partials/addUser.jsp',
+		controller : 'userController'
+	})
+	
+	
+	.when('/updateUser/:userId',{
+		templateUrl:'resources/partials/addUser.jsp',
+		controller : 'userController'
+	})
+	
+	 .when('/users/:userId',{
+		templateUrl:'resources/partials/user.jsp',
+		controller : 'userController'
+	})
+	
     .otherwise({redirectTo:'/'});
     
 }]);
