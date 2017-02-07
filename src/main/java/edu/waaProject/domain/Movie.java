@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Movie {
 
@@ -21,6 +23,8 @@ public class Movie {
 
 	private String movieName;
 	private String director;
+	
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date releaseDate;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> actors;

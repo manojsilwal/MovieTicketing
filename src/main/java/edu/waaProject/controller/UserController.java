@@ -13,39 +13,92 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.waaProject.domain.User;
 import edu.waaProject.service.UserService;
-//added
+
 @RestController
 public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	public ResponseEntity<List<User>> getUsers() {
-		List<User> users = userService.findAll();
-		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
-	}
+	/**
+	 * this method is use to list the all user list.
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/user", method = RequestMethod.GET)
+	public List<User> getUsers() {
 
-	@RequestMapping(value = "/users", method = RequestMethod.POST)
-	public String addUser(@RequestBody User user) {
-		userService.save(user);
-		return null;
-	}
+		try {
 
-	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
-	public User getUser(@PathVariable("id") int id) {
-		return userService.findById(id);
-	}
+			System.out.println("Successfully listed user list with " + userService.findAll().size() + " rows");
+			return userService.findAll();
 
-	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
-	public String deleteUser(@PathVariable("id") int id) {
-		userService.delete(id);
-		return "users";
-	}
+		} catch (Exception e) {
+			System.err.println("Error in lising users: " + e.getMessage());
+			return null;
 
-	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT)
-	public String updateUser(@PathVariable("id") int id, @RequestBody User user) {
-		user.setId(id);
-		userService.save(user);
-		return "users";
+		}
+
 	}
+	
+	/**
+	 * this method is use to add user.
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/user", method = RequestMethod.POST)
+	public User addUser(@RequestBody User user) {
+		String userId="";
+		try {
+			userId=String.valueOf(user.getId());
+			System.out.println("Successfully added user  with id: " +userId);
+			return userService.save(user);
+
+		} catch (Exception e) {
+			System.err.println("Error in added user with id: " +userId);
+			return null;
+
+		}
+
+	}
+	
+	
+	/**
+	 * this method is use to update user.
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/user", method = RequestMethod.PUT)
+	public User updateUser(@RequestBody User user) {
+		String userId="";
+		try {
+			userId=String.valueOf(user.getId());
+			System.out.println("Successfully updated user with id: " +userId);
+			return userService.save(user);
+
+		} catch (Exception e) {
+			System.err.println("Error in updating user with id: " +userId);
+			return null;
+
+		}
+
+	}
+	
+	/**
+	 * this method is use to delete user.
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
+	public void updateUser(@PathVariable int id) {
+		try {
+			System.out.println("Successfully deleted user with id: " +id);
+			userService.delete(id);
+
+		} catch (Exception e) {
+			System.err.println("Error in updating user with id: " +id);
+		}
+
+	}
+	
+
 }
