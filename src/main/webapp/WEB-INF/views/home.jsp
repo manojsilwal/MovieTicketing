@@ -4,25 +4,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Angular Registration</title>
+  <title>Movie Ticketing</title>
   <meta name="viewport" content="width=device-width, user-scalable=no">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="resources/css/style.css">
+  
 
-<body ng-app='routingDemoApp'>
+<body  data-ng-app='movieTicketingApp'>
      
-        <h2>AngularJS Routing Application</h2>
+        <h2>Movie Ticketing</h2>
         <ul>
-            <li><a href="#/">Default Route</a></li>
-            <li><a href="#/computers">Computer Route</a></li>
-            <li><a href="#/printers">Printers Route</a></li>
-            <li><a href="#/blabla">Unknown Route</a></li>
+            <li><a href="#/">Home</a></li>
+            <li><a href="#/addMovie">Add Movie</a></li>
+            <li><a href="#/movies">Movie List</a></li>
         </ul>
          
         <div ng-view></div>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
         <script src="resources/js/app.js"></script>
+        <script src="resources/js/movieController.js"></script>
      
      
     </body>

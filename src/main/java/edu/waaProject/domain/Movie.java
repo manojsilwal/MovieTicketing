@@ -3,11 +3,13 @@ package edu.waaProject.domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Movie {
@@ -16,8 +18,8 @@ public class Movie {
 	@GeneratedValue
 	private long movieId;
 
-/*	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Show> show;*/
+	@OneToMany(mappedBy = "movie",fetch = FetchType.EAGER)
+	private List<Show> show;
 
 	private String movieName;
 	private String director;
@@ -25,13 +27,13 @@ public class Movie {
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> actors;
 
-	/*public List<Show> getShow() {
+	public List<Show> getShow() {
 		return show;
 	}
 
 	public void setShow(List<Show> show) {
 		this.show = show;
-	}*/
+	}
 
 	public long getMovieId() {
 		return movieId;
