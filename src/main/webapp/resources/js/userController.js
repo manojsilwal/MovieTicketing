@@ -99,8 +99,8 @@ function userService($http){
         return $http({method: 'GET', url: 'user'});
 	}
     
-    service.submit = function(movie) {
-    	return $http.post('users', movie);
+    service.submit = function(user) {
+    	return $http.post('user', user);
 	};
     
 	service.delete = function(index){
@@ -108,8 +108,8 @@ function userService($http){
 		return $http.delete('user/'+index);
 	}
 	
-	service.update = function(movie){
-		return $http.put('users', movie);
+	service.update = function(user){
+		return $http.put('user', user);
 	}
     
 }
