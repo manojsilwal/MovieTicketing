@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Movie {
@@ -20,7 +22,10 @@ public class Movie {
 	@GeneratedValue
 	private long movieId;
 
-	@OneToMany(mappedBy = "movie", fetch = FetchType.EAGER)
+
+
+	@OneToMany(mappedBy = "movie",fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("movie")
 	private List<Show> show;
 
 	private String movieName;
