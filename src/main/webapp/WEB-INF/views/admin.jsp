@@ -23,13 +23,11 @@
 
 <link rel="stylesheet" href="resources/css/style.css">
 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <link rel="stylesheet" href="/resources/demos/style.css">
 
-
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/jquery.datetimepicker.min.css"
-	rel="stylesheet" />
+<link rel="stylesheet" href="resources/css/jquery.datetimepicker.min.css" >
 
 
 
