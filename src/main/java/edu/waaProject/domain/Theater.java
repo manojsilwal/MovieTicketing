@@ -26,9 +26,18 @@ public class Theater {
 	@Embedded
 	private Address address;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JsonIgnore
-	private List<Seats> seats;
+	
+	private int totalSeats;
+	
+	
+
+	public int getTotalSeats() {
+		return totalSeats;
+	}
+
+	public void setTotalSeats(int totalSeats) {
+		this.totalSeats = totalSeats;
+	}
 
 	public int getTheaterId() {
 		return theaterId;
@@ -45,14 +54,6 @@ public class Theater {
 
 	public void setTickets(List<Tickets> tickets) {
 		this.tickets = tickets;
-	}
-
-	public List<Seats> getSeats() {
-		return seats;
-	}
-
-	public void setSeats(List<Seats> seats) {
-		this.seats = seats;
 	}
 
 	public int gettId() {

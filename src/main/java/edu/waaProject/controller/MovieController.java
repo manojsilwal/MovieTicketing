@@ -26,7 +26,7 @@ public class MovieController {
 
 	@RequestMapping(value = "/movies", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<Movie> getMovies() {
-
+		System.out.println("inside getMovies"+movieService.findAll());
 		return movieService.findAll();
 	}
 
