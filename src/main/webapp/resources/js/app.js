@@ -42,6 +42,51 @@ angular.module('movieTicketingApp',['ngRoute'])
 		controller : 'userController'
 	})
 	
+	
+	.when('/theaters',{
+		templateUrl:'resources/partials/theaterList.jsp',
+		controller : 'theaterController'
+	})
+	
+	.when('/addTheater',{
+		templateUrl:'resources/partials/addTheater.jsp',
+		controller : 'theaterController'
+	})
+	
+	
+	.when('/updateTheater/:theaterId',{
+		templateUrl:'resources/partials/addTheater.jsp',
+		controller : 'theaterController'
+	})
+	
+	 .when('/theaters/:theaterId',{
+		templateUrl:'resources/partials/theater.jsp',
+		controller : 'theaterController'
+	})
+	
+	
+	.when('/shows',{
+		templateUrl:'resources/partials/showList.jsp',
+		controller : 'showController'
+	})
+	
+	.when('/addShow',{
+		templateUrl:'resources/partials/addShow.jsp',
+		controller : 'showController'
+	})
+	
+	
+	.when('/updateShow/:showId',{
+		templateUrl:'resources/partials/addShow.jsp',
+		controller : 'showController'
+	})
+	
+	 .when('/shows/:showId',{
+		templateUrl:'resources/partials/show.jsp',
+		controller : 'showController'
+	})
+	
+	
     .otherwise({redirectTo:'/'});
     
 }]);

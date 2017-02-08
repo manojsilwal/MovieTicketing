@@ -10,7 +10,9 @@
         var base = this;
         // Access to jQuery and DOM versions of element
         base.$el = $(el);
+        console.log('aa');
         base.el = el;
+        console.log(base.el);
         // Add a reverse reference to the DOM object
         base.$el.data("slidey", base);
         // define slider specific variables
@@ -20,6 +22,8 @@
         base.timer = 0;
         base.hfr = 0;
         base.init = function() {
+        	console.log('-----------');
+        	console.log(base.$el.find("ul"));
             base.options = $.extend({}, $.slidey.defaultOptions, options);
             // Put your initialization code here
             base.fetchSlides();
@@ -30,6 +34,7 @@
             base.startSliding();
         };
         base.fetchSlides = function() {
+        	console.log(base.$el.find("ul"));
             if (base.$el.find("ul").size() > 0) {
                 base.$el.find("ul").first().children("li").each(function() {
                     var slide = {},
@@ -228,7 +233,9 @@
     };
     
     $.fn.slidey = function(options) {
+    	console.log(this);
         return this.each(function() {
+        	console.log('aa');
             (new $.slidey(this, options));
         });
     };

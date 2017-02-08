@@ -1,44 +1,25 @@
 var movie = angular.module("movieTicketingApp");
 
-movie.service("showService", movieService);
+movie.service("showService", showService);
  
-movieService.$inject = ['$http'];
+showService.$inject = ['$http'];
 
-movie.controller("showController", movieController);
+movie.controller("showController", showController);
 
-movieController.$inject = ['$scope','$http', 'showService','$routeParams'];
+showController.$inject = ['$scope','$http', 'showService','$routeParams'];
 
-
-function movieController($scope, $http, movieService, $routeParams){
-	$scope.header = "Movie";
+function showController($scope, $http, showService, $routeParams){
+	$scope.header = "Shows";
 	$scope.list = [];
-	$scope.whichMovie = $routeParams.movieId;
-	$scope.movies = [];
-	
-	$scope.selectedMovie = $scope.movies[$scope.whichMovie];
-	
-	console.log($scope.movies[$scope.whichMovie]);
-	
-	$scope.movie = {
-			"movieName" : '',
-			"director" : '',
-			"actors" : '',
-			"releaseDate" : ''
-		}
-	
-	$scope.movie.actors = $scope.movie.actors;
-	
-	//add Actors
-	$scope.addActors = function(){
-		$scope.movie.actors.push($scope.actor);
-		$scope.actor = "";
-	};
-	
-	
+	$scope.whichShow = $routeParams.showId;
+	$scope.shows = [];
+	$scope.show = $scope.shows[$scope.whichShow];
+		
+
 	
 	//delete movies
 	$scope.delete = function(index){
-		movieService.delete(index).success(function(data, status, headers, config) {
+		showService.delete(index).success(function(data, status, headers, config) {
 			console.log(data);
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
@@ -48,7 +29,15 @@ function movieController($scope, $http, movieService, $routeParams){
 	
 	//Update movies
 	$scope.put = function(){
-		movieService.put(movie).success(function(data, status, headers, config) {
+		
+		var show = {
+				"startTime" : $scope.startTime,
+				"endTime" : $scope.endTime ,
+				"language" : $scope.language,
+				"totalAvailableSheet" : $scope.totalAvailableSheet
+		};
+		
+		showService.put(show).success(function(data, status, headers, config) {
 			console.log(data);
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
@@ -57,8 +46,15 @@ function movieController($scope, $http, movieService, $routeParams){
 	
 	//Post movie
 	$scope.postData = function(){
-		$scope.movie.actors.push($scope.actor);
-		movieService.submit($scope.movie).success(function(data, status, headers, config) {
+		
+		var show = {
+				"startTime" : $scope.startTime,
+				"endTime" : $scope.endTime ,
+				"language" : $scope.language,
+				"totalAvailableSheet" : $scope.totalAvailableSheet
+		};
+		
+		showService.submit(show).success(function(data, status, headers, config) {
 			$scope.list.push(data);
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
@@ -67,44 +63,44 @@ function movieController($scope, $http, movieService, $routeParams){
 	
 	
 	//get movie list
-	var moviesRecieved = function(movies) {
-		$scope.movies = movies;
+	$scope.getShows = function(){
+		showService.getShows().success(function(data, status, headers, config){
+        $scope.shows = data;
+        console.log(data);
+	    }).
+	    error(function(data, status, headers, config) {
+	    });
+			
+	
 	};
-	movieService.getMovies(moviesRecieved);
+	
+	$scope.getShows();
 
 	
 }
 
 	
 
-function movieService($http){
+function showService($http){
 	var service = this;
 	
-	this.itemList = [];
+	itemList = [];
 		
-	service.getMovies = function(cb) {
-        return $http({method: 'GET', url: 'movies'}).success(function(data, status, headers, config){
-        	this.itemList = data;
-        	cb(this.itemList);
-	    }.bind(this)).
-	    	error(function(data, status, headers, config) {
-	    });
+	service.getShows = function() {           
+        return $http({method: 'GET', url: 'show'});
 	}
-	
     
     service.submit = function(movie) {
-    	return $http.post('movies', movie);
+    	return $http.post('show', movie);
 	};
     
 	service.delete = function(index){
 		console.log("service"+index);
-		return $http.delete('movies/'+index);
+		return $http.delete('show/'+index);
 	}
 	
-	
-	
 	service.update = function(movie){
-		return $http.put('movies', movie);
+		return $http.put('show', movie);
 	}
     
 }

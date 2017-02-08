@@ -16,8 +16,6 @@
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/bootstrap-theme.min.css">
 
-
-
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -33,14 +31,6 @@
 	
 </script>
 <body data-ng-app='movieTicketingApp'>
-
-	<!-- <h2>Movie Ticketing</h2>
-	<ul>
-		<li><a href="#/">Home</a></li>
-		<li><a href="#/addMovie">Add Movie</a></li>
-		<li><a href="#/movies">Movie List</a></li>
-<<<<<<< HEAD
-	</ul> -->
 
 	<!-- start of nav -->
 	<nav class="navbar navbar-default">
@@ -60,24 +50,44 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">User <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#/addUser">Add</a></li>
-						<li><a href="#/users">User List</a></li>
+				<ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+							User 
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/addUser">Add</a></li>
+							<li><a href="#/users">User List</a></li>
+						</ul>
+					</li>
 
-					</ul></li>
-
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">Movie <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="/FinalProject/addMovie">Add</a></li>
-						<li><a href="#/movies">Movie List</a></li>
-
-					</ul></li>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Movie 
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/FinalProject/addMovie">Add</a></li>
+							<li><a href="#/movies">Movie List</a></li>
+						</ul>
+					</li>
+					
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Theater 
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/addTheater">Add</a></li>
+							<li><a href="#/theaters">Theater List</a></li>
+						</ul>
+					</li>
+					
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						Show 
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#/addShow">Add</a></li>
+							<li><a href="#/shows">Show List</a></li>
+						</ul>
+					</li>
+					
 				<li><a href="/login">Login </a></li>
 			</ul>
 
@@ -105,7 +115,10 @@
 	<script src="resources/js/app.js"></script>
 	<script src="resources/js/userController.js"></script>
 	<script src="resources/js/movieController.js"></script>
-	
+
+	<script src="resources/js/theaterController.js"></script>
+	<script src="resources/js/showController.js"></script>
+
 
 </body>
 </html>

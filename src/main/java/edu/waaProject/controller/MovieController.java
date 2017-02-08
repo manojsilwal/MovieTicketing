@@ -26,7 +26,7 @@ public class MovieController {
 
 	@RequestMapping(value = "/movies", method = RequestMethod.GET, headers = "Accept=application/json")
 	public List<Movie> getMovies() {
-
+		System.out.println("inside getMovies"+movieService.findAll());
 		return movieService.findAll();
 	}
 
@@ -36,18 +36,7 @@ public class MovieController {
 		return movieService.findByMovieId(movieId);
 	}
 	
-	@RequestMapping(value = "/image/{movieId}", method = RequestMethod.GET)
-	public void getImageForProduct(@PathVariable("movieId") int movieId, HttpServletResponse response) 
-	          throws ServletException, IOException {
-		
-		System.out.println("getting image");
-		
-		Movie movie = movieService.findByMovieId(movieId);
-	    response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
-	    ServletOutputStream out = response.getOutputStream();
-	    out.write(movie.getImage());
-	    out.close();
-	}
+	
 
 	@RequestMapping(value = "/movies", method = RequestMethod.POST, headers = "Accept=application/json")
 	public Movie addMovie(@RequestBody Movie movie) {

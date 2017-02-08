@@ -4,7 +4,7 @@ angular.module('frontApp',['ngRoute'])
     $routeProvider
     .when('/',{
     	templateUrl:'resources/partials/home.jsp',
-    	controller: 'movieUIController'
+    	controller: 'movieController'
     	})
     	
     .when('/movies',{
