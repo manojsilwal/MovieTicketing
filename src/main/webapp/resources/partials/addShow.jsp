@@ -15,16 +15,16 @@
 	<form data-ng-submit="postData()">
 		<h3>{{headerText}}</h3>
 		<p>
-			Language : <input type="text" data-ng-model="show.language">
+			Language : <input type="text" data-ng-model="language">
 		</p>
 		<p>
-			Total Available Sheet :<input type="text" data-ng-model="show.totalAvailableSheet">
+			Total Available Sheet :<input type="text" data-ng-model="totalAvailableSheet">
 		</p>
 		<p>
-			Start time :<input type="date" data-ng-model="show.startTime" />
+			Start time :<input type="date" class="date" data-ng-model="startTime" />
 		</p>
 		<p>
-			End Time :<input class="" type="date" data-ng-model="movie.endTime">
+			End Time :<input class="" class="date" type="date" data-ng-model="endTime">
 		</p>
 				
 		<input type="submit" id="submit" value="Submit" /><br>

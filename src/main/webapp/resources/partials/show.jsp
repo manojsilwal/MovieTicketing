@@ -3,31 +3,29 @@
 <section class="container-wrapper">
 	<div class="container">
 
-		<div ng-model="theaters">
+		<div ng-model="movies">
 			<div class="row">
-				
 				<div class="col-md-5">
 					<h3>
-						<p>{{theaters[whichTheater].tname}}</p>
+						<p>{{shows[whichShow].language}}</p>
 					</h3>
 
 					<div class="movie-info">
 
 						<p>
 							<span class="col-md-5 col-xs-6">Releasing Date :</span> <span
-								class="col-md-7 col-xs-6">{{movies[whichMovie].releaseDate}}</span>
+								class="col-md-7 col-xs-6">{{shows[whichShow].startTime}}</span>
 						</p>
 						<p>
 							<span class="col-md-5 col-xs-6">Director :</span> <span
-								class="col-md-7 col-xs-6">{{movies[whichMovie].director}}</span>
+								class="col-md-7 col-xs-6">{{shows[whichShow].endTime}}</span>
 						</p>
 
 						<p>
 							<span class="col-md-5 col-xs-6">Cast :</span> <span
-								class="col-md-7 col-xs-6"><ul>
-									<li ng-repeat="actor in movies[whichMovie].actors">
-										{{actor}}</li>
-								</ul></span>
+								class="col-md-7 col-xs-6">
+								{{shows[whichShow].totalAvailableSheet}}
+							</span>
 						</p>
 
 
@@ -39,12 +37,6 @@
 
 			</div>
 			<!-- start -->
-			<div class="mar-t-15">
-
-				<h4>Description</h4>
-				<p>{{movies[whichMovie].description}}</p>
-
-			</div>
 
 			<!-- end -->
 

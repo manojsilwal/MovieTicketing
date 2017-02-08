@@ -1,4 +1,4 @@
-var theater = angular.module("frontApp");
+var theater = angular.module("movieTicketingApp");
 
 theater.service("theaterService", theaterService);
  
@@ -12,11 +12,9 @@ function theaterController($scope, $http, theaterService, $routeParams){
 	$scope.header = "Show";
 	$scope.list = [];
 	$scope.whichTheater = $routeParams.theaterId;
-	$scope.shows = [];
-	$scope.show = $scope.shows[$scope.whichTheater];
-	
-	console.log($scope.movies[$scope.whichTheater]);
-	
+	$scope.theaters = [];
+	$scope.theater = $scope.theaters[$scope.whichTheater];
+		
 	//delete movies
 	$scope.delete = function(index){
 		theaterService.delete(index).success(function(data, status, headers, config) {
@@ -49,9 +47,17 @@ function theaterController($scope, $http, theaterService, $routeParams){
 				"tname" : $scope.tname,
 				"address" : $scope.address ,
 				"totalSeats" : $scope.totalSeats,
+				"address": {
+				      "street": $scope.street,
+				      "city": $scope.city,
+				      "state": $scope.state,
+				      "zip": $scope.zip,
+				    }
 		};
 		
-		theaterService.submit(movie).success(function(data, status, headers, config) {
+		console.log(theater);
+		
+		theaterService.submit(theater).success(function(data, status, headers, config) {
 			$scope.list.push(data);
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
@@ -61,7 +67,7 @@ function theaterController($scope, $http, theaterService, $routeParams){
 	
 	//get movie list
 	$scope.getTheaters = function(){
-		movieService.getTheaters().success(function(data, status, headers, config){
+		theaterService.getTheaters().success(function(data, status, headers, config){
         $scope.theaters = data;
         console.log(data);
 	    }).
@@ -84,20 +90,21 @@ function theaterService($http){
 	itemList = [];
 		
 	service.getTheaters = function() {           
-        return $http({method: 'GET', url: 'theaters'});
-	}
+        return $http({method: 'GET', url: 'theater'});
+	};
     
-    service.submit = function(movie) {
-    	return $http.post('theaters', movie);
+    service.submit = function(theater) {
+    	console.log(theater);
+    	return $http.post('theater', theater);
 	};
     
 	service.delete = function(index){
 		console.log("service"+index);
-		return $http.delete('theaters/'+index);
+		return $http.delete('theater/'+index);
 	}
 	
 	service.update = function(movie){
-		return $http.put('theaters', movie);
+		return $http.put('theater', movie);
 	}
     
 }
