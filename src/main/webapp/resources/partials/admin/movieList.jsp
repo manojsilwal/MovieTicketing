@@ -19,7 +19,7 @@
 
 						<div class="caption">
 							<h3>
-								<a href="#/movies/{{$index}}">
+								<a data-ng-href="#/movies/{{$index}}">
 									<p>{{movie.movieName}}</p>
 								</a>
 							</h3>
@@ -28,7 +28,7 @@
 							<p>
 								<button data-ng-click="delete(movie.movieId)"
 									class="btn btn-danger">Delete</button>
-								<a href="#/updateMovie/{{$index}}" class="btn btn-primary">Update</button>
+								<a data-ng-href="#/updateMovie/{{$index}}" class="btn btn-primary">Update</button>
 							</p>
 
 						</div>

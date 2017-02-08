@@ -10,7 +10,7 @@ movieController.$inject = ['$scope','$http', 'movieService','$routeParams'];
 
 function movieController($scope, $http, movieService, $routeParams){
 	$scope.whichMovie = $routeParams.movieId;
-	$scope.actors = [];
+	$scope.showTime = [];
 	$scope.movies = [];
 	$scope.movie = $scope.movies[$scope.whichMovie];
 	

@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!-- banner -->
 	<!-- banner -->
-	<div id="slidey" style="display: none;">
+	<!-- <div id="slidey" style="display: none;">
 
 		<ul>
 			<li><img src="resources/early/images/5.jpg" alt=" ">
@@ -59,9 +59,9 @@
 					(Patrick Wilson) and Lorraine Warren come out of a self-imposed
 					sabbatical to travel to Enfield, a borough in north ...</p></li>
 		</ul>
-	</div>
+	</div> -->
 
-	<!-- <div id="slidey" style="display:none;">
+	<div id="slidey" style="display:none;">
 		<ul>
 			<li ng-repeat="movie in movies">
 				<img src="images/5.jpg" alt=" ">
@@ -72,7 +72,7 @@
 				</p>
 			</li>
 		</ul>   	
-    </div> -->
+    </div>
     <script src="js/jquery.slidey.js"></script>
     <script src="js/jquery.dotdotdot.min.js"></script>
 	   <script type="text/javascript">
@@ -132,7 +132,7 @@
 									</h6>
 								</div>
 								<div class="mid-2 agile_mid_2_home">
-									<button class="btn btn-warning" href="#">Book Now</button>
+									<a class="btn btn-warning" href="#/theater">Book Now</a>
 									<div class="clearfix"></div>
 								</div>
 							</div>

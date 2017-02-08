@@ -7,11 +7,15 @@ angular.module('frontApp',['ngRoute'])
     	controller: 'movieController'
     	})
     	
-    .when('/bookNow',{
-    	templateUrl:'resources/partials/bookNow.jsp',
+    .when('/theater',{
+    	templateUrl:'resources/partials/MyTheaters.jsp',
     	controller: 'movieController'
     	})
-	
+    
+    .when('/booknow',{
+    	templateUrl:'resources/partials/BookNow.jsp',
+    	controller: 'movieController'
+    	})
     .otherwise({redirectTo:'/'});
     
 }]);
