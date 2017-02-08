@@ -1,10 +1,31 @@
-
-
-
-	
-	
-	
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!-- banner -->
+	<div id="slidey" style="display:none;">
+		<ul>
+			<li ng-repeat="movie in movies">
+				<img src="images/5.jpg" alt=" ">
+				<p class='title'>
+					<a href="#">BOOK TICKET</a></p><p class='description'>
+					<span style="font-size: 20px; color: #FF8D1B;">{{movie.movieName}}</span>
+					{{movie.description}}
+				</p>
+			</li>
+		</ul>   	
+    </div>
+    <script src="js/jquery.slidey.js"></script>
+    <script src="js/jquery.dotdotdot.min.js"></script>
+	   <script type="text/javascript">
+			$("#slidey").slidey({
+				interval: 8000,
+				listCount: 5,
+				autoplay: false,
+				showList: true
+			});
+			$(".slidey-list-description").dotdotdot();
+		</script>
+<!-- //banner -->
+<!-- banner-bottom -->
 
 <!-- //banner-bottom -->
 <div class="general_social_icons">

@@ -25,6 +25,19 @@ public class Theater {
 	@Embedded
 	private Address address;
 
+	
+	private int totalSeats;
+	
+	
+
+	public int getTotalSeats() {
+		return totalSeats;
+	}
+
+	public void setTotalSeats(int totalSeats) {
+		this.totalSeats = totalSeats;
+	}
+
 	public int getTheaterId() {
 		return theaterId;
 	}
