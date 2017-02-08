@@ -32,9 +32,11 @@ public class Show {
 	private List<Tickets> tickets;
 
 	private String language;
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
 	private Date startTime;
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	
+	
+	@JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
 	private Date endTime;
 
 	public Movie getMovie() {
