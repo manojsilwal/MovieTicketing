@@ -13,7 +13,7 @@
 				<li ng-repeat="movie in movies">
 					<div class="col-sm-6 col-md-3">
 						<div class="thumbnail">
-							<img src="resources/images/RE.jpg"
+							<img src="/FinalProject/images/{{movie.movieId}}"
 								alt="Generic placeholder thumbnail">
 						</div>
 
