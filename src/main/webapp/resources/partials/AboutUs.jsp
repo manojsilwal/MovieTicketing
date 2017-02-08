@@ -3,35 +3,44 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-3">
-			<h2 style="padding-top: 30px; padding-left: 118px;">Theater Name:</h2>
-		</div>
-		<div class="col-md-1">
-			<div class="responsive-circle nyc-circle">
-				<a href="#/booknow"><div class="circle-inner">10:00</div></a>
-			</div>
-		</div>
-		<div class="col-md-1">
-			<div class="responsive-circle nyc-circle">
-				<a href="#"><div class="circle-inner">11:00</div></a>
-			</div>
-		</div>
-		<div class="col-md-1">
-			<div class="responsive-circle nyc-circle">
-				<a href="#"><div class="circle-inner">12:00</div></a>
-			</div>
-		</div>
-		<div class="col-md-1">
-			<div class="responsive-circle nyc-circle">
-				<a href="#"><div class="circle-inner">01:00</div></a>
-			</div>
-		</div>
-		<div class="col-md-1">
-			<div class="responsive-circle nyc-circle">
-				<a href="#"><div class="circle-inner">02:00</div></a>
-			</div>
-		</div>
 
 
+		<h4 class="latest-text w3_latest_text">About Us</h4>
+		<p class="ptext">Lorem ipsum dolor sit amet,
+			consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+			exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+			dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est
+			laborum.Lorem ipsum dolor sit amet,
+			consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+			exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+			dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est
+			laborum.Lorem ipsum dolor sit amet,
+			consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+			exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+			dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est
+			laborum.Lorem ipsum dolor sit amet,
+			consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+			exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+			dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est
+			laborum.Lorem ipsum dolor sit amet,
+			consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+			labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+			exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+			dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+			non proident, sunt in culpa qui officia deserunt mollit anim id est
+			laborum.</p>
 	</div>
 </div>

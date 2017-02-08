@@ -26,6 +26,11 @@ public class Show {
 	@JoinColumn(name = "movieId")
 	@JsonIgnoreProperties("show")
 	private Movie movie;
+	
+	@ManyToOne
+	@JoinColumn(name = "theaterId")
+	@JsonIgnoreProperties("show")
+	private Theater theater;
 
 	@OneToMany(mappedBy = "show", fetch = FetchType.EAGER)
 	@JsonIgnoreProperties("show")

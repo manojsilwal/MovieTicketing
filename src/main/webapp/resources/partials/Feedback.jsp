@@ -3,35 +3,71 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-3">
-			<h2 style="padding-top: 30px; padding-left: 118px;">Theater Name:</h2>
-		</div>
-		<div class="col-md-1">
-			<div class="responsive-circle nyc-circle">
-				<a href="#/booknow"><div class="circle-inner">10:00</div></a>
-			</div>
-		</div>
-		<div class="col-md-1">
-			<div class="responsive-circle nyc-circle">
-				<a href="#"><div class="circle-inner">11:00</div></a>
-			</div>
-		</div>
-		<div class="col-md-1">
-			<div class="responsive-circle nyc-circle">
-				<a href="#"><div class="circle-inner">12:00</div></a>
-			</div>
-		</div>
-		<div class="col-md-1">
-			<div class="responsive-circle nyc-circle">
-				<a href="#"><div class="circle-inner">01:00</div></a>
-			</div>
-		</div>
-		<div class="col-md-1">
-			<div class="responsive-circle nyc-circle">
-				<a href="#"><div class="circle-inner">02:00</div></a>
-			</div>
-		</div>
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Send Us your Valuable feedback</h3>
+				</div>
+				<div class="panel-body">
 
 
+					<form:form action="addMovie" method="post" modelAttribute="movie"
+						enctype="multipart/form-data">
+						<table>
+							<tr>
+								<td>Enter Name:</td>
+								<td><div class="form-group">
+										<form:input class="form-control" type="text" name="movieName"
+											id="movieName" path="movieName" value="${movie.movieName}" />
+									</div></td>
+							</tr>
+							<tr>
+								<td>Enter Director Name:</td>
+								<td><div class="form-group">
+										<form:input class="form-control" type="text" name="director"
+											id="director" path="director" value="${movie.director}" />
+									</div></td>
+							</tr>
+							<tr>
+								<td>Enter Description:</td>
+								<td><div class="form-group">
+										<form:textarea rows="5" cols="30" class="form-control"
+											type="text" name="description" id="description"
+											path="description" value="${movie.description}" />
+									</div></td>
+							</tr>
+							<tr>
+								<td>Enter Release Date:</td>
+								<td><div class="form-group">
+										<form:input class="form-control" type="date"
+											name="releaseDate" id="releaseDate" path="releaseDate"
+											value="${movie.releaseDate}" />
+									</div></td>
+							</tr>
+							<tr>
+								<td>Enter Actors Name:</td>
+								<td><div class="form-group">
+										<form:input class="form-control" type="text" name="actors"
+											id="actors" path="actors" value="${movie.actors}" />
+									</div></td>
+							</tr>
+							<tr>
+								<td>Choose Cover Image:</td>
+								<td><div class="form-group">
+										<form:input class="input-group form-control" type="file"
+											path="image" />
+									</div></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><input class="btn btn-lg btn-warning btn-block"
+									type="submit" value="submit"></td>
+							</tr>
+						</table>
+					</form:form>
+
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

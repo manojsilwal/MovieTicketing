@@ -83,14 +83,15 @@
 									<td>Enter Name:</td>
 									<td><div class="form-group">
 											<form:input class="form-control" type="text" name="movieName"
-												id="movieName" path="movieName" value="${movie.movieName}" />
+												id="movieName" path="movieName" value="${movie.movieName}"
+												pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" />
 										</div></td>
 								</tr>
 								<tr>
 									<td>Enter Director Name:</td>
 									<td><div class="form-group">
 											<form:input class="form-control" type="text" name="director"
-												id="director" path="director" value="${movie.director}" />
+												id="director" path="director" value="${movie.director}" required="required"/>
 										</div></td>
 								</tr>
 								<tr>
