@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -22,6 +23,13 @@ public class Movie {
 	@GeneratedValue
 	private long movieId;
 
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 
 
 	@OneToMany(mappedBy = "movie",fetch = FetchType.EAGER)
@@ -30,10 +38,15 @@ public class Movie {
 
 	private String movieName;
 	private String director;
+	
+	@Lob
+	private byte[] image;
+	
+	
 	@Column(length = 100000)
 	private String description;
-
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date releaseDate;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> actors;

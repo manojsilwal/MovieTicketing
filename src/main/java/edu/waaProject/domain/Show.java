@@ -21,7 +21,7 @@ public class Show {
 	@Id
 	@GeneratedValue
 	private long showId;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "movieId")
 	@JsonIgnoreProperties("show")
@@ -30,7 +30,9 @@ public class Show {
 	@OneToMany(mappedBy = "show", fetch = FetchType.EAGER)
 	@JsonIgnoreProperties("show")
 	private List<Tickets> tickets;
-
+	
+	private int totalAvailableSheet;
+	
 	private String language;
 	@JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
 	private Date startTime;
@@ -86,5 +88,15 @@ public class Show {
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
+
+	public int getTotalAvailableSheet() {
+		return totalAvailableSheet;
+	}
+
+	public void setTotalAvailableSheet(int totalAvailableSheet) {
+		this.totalAvailableSheet = totalAvailableSheet;
+	}
+	
+	
 
 }

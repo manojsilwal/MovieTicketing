@@ -6,6 +6,7 @@ angular.module('movieTicketingApp',['ngRoute'])
     	templateUrl:'resources/partials/movieList.jsp',
     	controller: 'movieController'
     	})
+    	
     .when('/movies',{
     	templateUrl:'resources/partials/movieList.jsp',
     	controller: 'movieController'

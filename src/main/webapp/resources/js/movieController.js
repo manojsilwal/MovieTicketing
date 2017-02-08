@@ -5,6 +5,22 @@ movie.service("movieService", movieService);
 movieService.$inject = ['$http'];
 
 movie.controller("movieController", movieController);
+movie.directive('fileModel', ['$parse', function ($parse) {
+    return {
+       restrict: 'A',
+       link: function(scope, element, attrs) {
+          var model = $parse(attrs.fileModel);
+          var modelSetter = model.assign;
+          
+          element.bind('change', function(){
+             scope.$apply(function(){
+                modelSetter(scope, element[0].files[0]);
+             });
+          });
+       }
+    };
+ }]);
+
 
 movieController.$inject = ['$scope','$http', 'movieService','$routeParams'];
 
@@ -15,6 +31,16 @@ function movieController($scope, $http, movieService, $routeParams){
 	$scope.actors = [];
 	$scope.movies = [];
 	$scope.movie = $scope.movies[$scope.whichMovie];
+	
+	$scope.uploadFile = function(){
+	       var file = $scope.myFile;
+	       
+	       console.log('file is ' );
+	       console.dir(file);
+	       
+	       var uploadUrl = "/fileUpload";
+	       movieService.uploadFileToUrl(file, uploadUrl);
+	    };
 	
 	console.log($scope.movies[$scope.whichMovie]);
 	
@@ -60,7 +86,8 @@ function movieController($scope, $http, movieService, $routeParams){
 				"movieName" : $scope.movieName,
 				"director" : $scope.director ,
 				"actors" : $scope.actors,
-				"releaseDate" : $scope.date
+				"releaseDate" : $scope.date,
+				"image": $scope.myFile
 		};
 		
 		movieService.submit(movie).success(function(data, status, headers, config) {
@@ -112,4 +139,20 @@ function movieService($http){
 		return $http.put('movies', movie);
 	}
     
+	service.uploadFileToUrl = function(file, uploadUrl){
+	       var fd = new FormData();
+	       fd.append('file', file);
+	    
+	       $https.post(uploadUrl, fd, {
+	          transformRequest: angular.identity,
+	          headers: {'Content-Type': undefined}
+	       })
+	    
+	       .success(function(){
+	       })
+	    
+	       .error(function(){
+	       });
+	    }
+	
 }
