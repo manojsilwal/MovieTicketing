@@ -3,12 +3,7 @@
 
 	<h1>{{header}}</h1>
 	<form data-ng-submit="postData()">
-		<h3>{{headerText}}</h3>
-
-		<!-- <div class="container">
-			<input type="text" id="datetimepic"/>
-		
-		</div> -->
+		<h3>{{headerText}}</h3>	
 
 		<p>
 			Language : <input type="text" data-ng-model="language">
@@ -20,7 +15,8 @@
 
 
 		<p>
-			Start time :<input type="text" class="form-control" id="datetimepic" data-ng-model="startTime" />
+			Start time :<input type="text" class="form-control" id="datetimepic"
+				data-ng-model="startTime" />
 		</p>
 		<p>
 			End Time :<input class="form-control" id="datetimepic1" type="text"
@@ -33,15 +29,12 @@
 		<pre>Form data ={{list}}</pre>
 	</form>
 
-<script type="text/javascript">
+	<script type="text/javascript">
+		$("#datetimepic").datetimepicker();
+	</script>
 
-	$("#datetimepic").datetimepicker();
-</script>
+	
 
-<script type="text/javascript">
-
-	$("#datetimepic1").datetimepicker();
-</script>
 
 </body>
 </html>
