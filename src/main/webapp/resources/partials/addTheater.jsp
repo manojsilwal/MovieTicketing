@@ -1,56 +1,34 @@
 <!DOCTYPE html>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-
-		$("#releaseDate").datepicker({
-			changeYear : true,
-			changeMonth : true,
-			yearRange : "1990:2017"
-		});
-	})
-</script>
 <body>	
 	<div class="addForm">
-		<h1>{{header}}</h1>
+		<h1>Add Theater</h1>
 		<form data-ng-submit="postData()">
-			<h3>{{headerText}}</h3>
 			<div class="form-group">
-				<label for="name">Name</label> 
-				<input type="text" data-ng-model="movieName" class="form-control" id="name" placeholder="Name">
+				<label for="name">Theater Name: </label> 
+				<input type="text" data-ng-model="tname" class="form-control" id="name" placeholder="Theater Name">
 			</div>
 			<div class="form-group">
-				<label for="dname">Director Name</label> 
-				<input type="text" data-ng-model="director" class="form-control" id="dname" placeholder="Director Name">
+				<fieldset>
+					<legend>Address:</legend>
+
+					<label for="state">State</label> <input type="text"
+						data-ng-model="state" class="form-control" id="state"
+						placeholder="State" /><br /> <label for="city">City</label> <input
+						type="text" data-ng-model="city" class="form-control" id="city"
+						placeholder="City"><br /> <label for="street">Street</label>
+					<input type="text" data-ng-model="street" class="form-control"
+						id="street" placeholder="Street"><br> <label
+						for="zip">Zip</label> <input type="text" data-ng-model="zip"
+						class="form-control" id="zip" placeholder="Zip"><br />
+				</fieldset>
 			</div>
 
-
 			<div class="form-group">
-				<label for="actor">Actors </label> 
-				<input type="text" data-ng-model="actor" class="form-control" id="actor" placeholder="Actors Name" /> <br />
-
-				<button type="button" ng-click="addActors()" class="btn btn-default">
-					<span class="glyphicon glyphicon-plus"></span> Add More
-				</button>
-			</div>
-			<p>Choose File:</p>
-			<input type = "file" file-model = "myFile"/>
-			
-			<ul>
-				<li ng-repeat="actor in actors">
-					<div>
-						<p>{{actor}}</p>
-					</div>
-				</li>
-			</ul>
-			<div class="form-group">
-				<label for="releaseDate">Release Date </label> <input
-					id="releaseDate" type="date" data-ng-model="date"
-					class="form-control" placeholder="Release Date">
+				<label for="totalSeats">Total Seats </label> 
+				<input type="text" data-ng-model="totalSeats" class="form-control" id="totalSeats" placeholder="Actors Name" /> <br />
 			</div>
 			<input type="submit" id="submit" value="Submit"
 				class="btn btn-default" /><br>
-
 			<h4>You submitted below data through post:</h4>
 			<pre>Form data ={{list}}</pre>
 		</form>
