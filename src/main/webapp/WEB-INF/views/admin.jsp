@@ -59,14 +59,15 @@
 
 					</ul></li>
 
-				<li class="dropdown"><a  class="dropdown-toggle"
+				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">Movie <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#/addMovie">Add</a></li>
+						<li><a href="/FinalProject/addMovie">Add</a></li>
 						<li><a href="#/movies">Movie List</a></li>
 
 					</ul></li>
+				<li><a href="/login">Login </a></li>
 			</ul>
 
 
@@ -91,7 +92,7 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
 	<script src="resources/js/app.js"></script>
-    <script src="resources/js/userController.js"></script>
+	<script src="resources/js/userController.js"></script>
 	<script src="resources/js/movieController.js"></script>
 
 

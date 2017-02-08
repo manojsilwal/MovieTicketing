@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Seats {
 	@Id
@@ -16,6 +18,7 @@ public class Seats {
 
 	@ManyToOne
 	@JoinColumn(name = "ticketNo")
+	@JsonIgnoreProperties("seats")
 	private Tickets tickets;
 
 	public Tickets getTickets() {

@@ -23,8 +23,10 @@ public class Tickets {
 	private double price;
 	@ManyToOne
 	@JoinColumn(name = "theaterId")
+	@JsonIgnoreProperties("tickets")
 	private Theater theater;
 	@OneToMany(mappedBy = "tickets", fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("tickets")
 	private List<Seats> seats;
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date showDate;
@@ -32,6 +34,7 @@ public class Tickets {
 	private Time showTime;
 	@ManyToOne
 	@JoinColumn(name = "bookingId")
+	@JsonIgnoreProperties("tickets")
 	private Booking booking;
 	@ManyToOne
 	@JoinColumn(name = "showId")

@@ -2,14 +2,13 @@ package edu.waaProject.domain;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Theater {
@@ -17,8 +16,8 @@ public class Theater {
 	@GeneratedValue
 	private int theaterId;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "theater", fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("theater")
 	private List<Tickets> tickets;
 
 	private String tname;
@@ -47,7 +46,6 @@ public class Theater {
 		this.theaterId = theaterId;
 	}
 
-	
 	public List<Tickets> getTickets() {
 		return tickets;
 	}

@@ -10,7 +10,8 @@
 		});
 	})
 </script>
-<body>	
+<body>
+
 	<div class="addForm">
 		<h1>{{header}}</h1>
 		<form data-ng-submit="postData()">
@@ -23,7 +24,6 @@
 				<label for="dname">Director Name</label> 
 				<input type="text" data-ng-model="director" class="form-control" id="dname" placeholder="Director Name">
 			</div>
-
 
 			<div class="form-group">
 				<label for="actor">Actors </label> 
