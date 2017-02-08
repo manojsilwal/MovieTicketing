@@ -42,10 +42,11 @@ public class Movie {
 	@Lob
 	private byte[] image;
 	
-	@JsonFormat(pattern="yyyy-MM-dd")
+	
 	@Column(length = 100000)
 	private String description;
 	
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date releaseDate;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> actors;

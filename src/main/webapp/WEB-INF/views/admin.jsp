@@ -63,7 +63,7 @@
 					data-toggle="dropdown" role="button" aria-haspopup="true"
 					aria-expanded="false">Movie <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#/addMovie">Add</a></li>
+						<li><a href="/FinalProject/addMovie">Add</a></li>
 						<li><a href="#/movies">Movie List</a></li>
 
 					</ul></li>
