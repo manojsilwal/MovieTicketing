@@ -78,6 +78,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	});
 </script>
 <!-- //banner-bottom-plugin -->
+
+<link href="resources/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+
 <link
 	href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300'
 	rel='stylesheet' type='text/css'>
