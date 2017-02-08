@@ -21,6 +21,17 @@
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
+
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js">
+	
+</script>
 <body data-ng-app='movieTicketingApp'>
 
 	<!-- <h2>Movie Ticketing</h2>
@@ -79,10 +90,10 @@
 
 	<!-- content goes here -->
 	<div ng-view></div>
-	
-	
-	
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+
+
+
 	<!-- bootstrap js -->
 	<script src="resources/js/bootstrap.min.js"></script>
 
@@ -94,7 +105,7 @@
 	<script src="resources/js/app.js"></script>
 	<script src="resources/js/userController.js"></script>
 	<script src="resources/js/movieController.js"></script>
-
+	
 
 </body>
 </html>
