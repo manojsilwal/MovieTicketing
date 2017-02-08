@@ -108,20 +108,5 @@ function movieService($http){
 		return $http.put('movies', movie);
 	}
     
-	service.uploadFileToUrl = function(file, uploadUrl){
-	       var fd = new FormData();
-	       fd.append('file', file);
-	    
-	       $https.post(uploadUrl, fd, {
-	          transformRequest: angular.identity,
-	          headers: {'Content-Type': undefined}
-	       })
-	    
-	       .success(function(){
-	       })
-	    
-	       .error(function(){
-	       });
-	    }
 	
 }
