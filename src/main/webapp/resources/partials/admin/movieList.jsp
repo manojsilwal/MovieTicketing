@@ -28,7 +28,7 @@
 							<p>
 								<button data-ng-click="delete(movie.movieId)"
 									class="btn btn-danger">Delete</button>
-								<button data-ng-click="update($index)" class="btn btn-primary">Update</button>
+								<a href="#/updateMovie/{{$index}}" class="btn btn-primary">Update</button>
 							</p>
 
 						</div>

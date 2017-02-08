@@ -16,7 +16,7 @@ function showController($scope, $http, showService, $routeParams){
 	$scope.show = $scope.shows[$scope.whichShow];
 		
 
-	
+	console.log();
 	//delete movies
 	$scope.delete = function(index){
 		showService.delete(index).success(function(data, status, headers, config) {

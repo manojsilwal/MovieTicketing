@@ -7,40 +7,10 @@ angular.module('frontApp',['ngRoute'])
     	controller: 'movieController'
     	})
     	
-    .when('/movies',{
-    	templateUrl:'resources/partials/movieList.jsp',
+    .when('/bookNow',{
+    	templateUrl:'resources/partials/bookNow.jsp',
     	controller: 'movieController'
     	})
-    .when('/addMovie',{
-    	templateUrl:'resources/partials/addMovie.jsp',
-    	controller: 'movieController'
-    	})
-    .when('/movies/:movieId',{
-		templateUrl:'resources/partials/movie.jsp',
-		controller : 'movieController'
-	})
-	
-	
-	.when('/users',{
-		templateUrl:'resources/partials/userList.jsp',
-		controller : 'userController'
-	})
-	
-	.when('/addUser',{
-		templateUrl:'resources/partials/addUser.jsp',
-		controller : 'userController'
-	})
-	
-	
-	.when('/updateUser/:userId',{
-		templateUrl:'resources/partials/addUser.jsp',
-		controller : 'userController'
-	})
-	
-	 .when('/users/:userId',{
-		templateUrl:'resources/partials/user.jsp',
-		controller : 'userController'
-	})
 	
     .otherwise({redirectTo:'/'});
     
