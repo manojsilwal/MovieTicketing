@@ -63,7 +63,7 @@
 
 	<div id="slidey" style="display:none;">
 		<ul>
-			<li>
+			<li ng-repeat="movie in movies">
 				<img src="images/5.jpg" alt=" ">
 				<p class='title'>
 					<a href="#">BOOK TICKET</a></p><p class='description'>
@@ -132,7 +132,7 @@
 									</h6>
 								</div>
 								<div class="mid-2 agile_mid_2_home">
-									<button class="btn btn-warning" href="#">Book Now</button>
+									<a class="btn btn-warning" href="#/theater">Book Now</a>
 									<div class="clearfix"></div>
 								</div>
 							</div>
