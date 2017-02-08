@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +14,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
 <script type="application/x-javascript">
+		
 	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
 
+
 </script>
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
 
 <script src="resources/js/main.js"></script>
 <script src="resources/js/movieUIController.js"></script>
@@ -103,9 +114,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="w3l_sign_in_register">
 				<ul>
-					<li><i class="fa fa-phone" aria-hidden="true"></i> (+000) 123
-						345 653</li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+					<li><spring:message code="welcome.lagin" />:</li>
+					<li><a href="?lang=en"
+						style="display: inline; padding: 0px;"><img
+							alt="American flag" src="resources/images/us.png"
+							style="width: 40px; height: 45px;"></a></li>
+					<li><a href="?lang=zh_CN"
+						style="display: inline; padding: 0px;"><img alt="Nepali flag"
+							src="resources/images/np.png" style="width: 40px; height: 45px;"></a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal"><spring:message code="welcome.login" /></a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -194,9 +211,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html">Home</a></li>
+							<li class="active"><a href="index.html"><spring:message code="welcome.home" /></a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">Our Theaters <b class="caret"></b></a>
+								data-toggle="dropdown"><spring:message code="welcome.ourtheater" /> <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
 										<div class="col-sm-4">
@@ -234,7 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</li>
 								</ul></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown">Movies <b class="caret"></b></a>
+								data-toggle="dropdown"><spring:message code="welcome.movies" /> <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
 										<div class="col-sm-6">
@@ -250,10 +267,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="clearfix"></div>
 									</li>
 								</ul></li>
-							<li><a href="#">Showtimes</a></li>
-							<li><a href="#">Book Now</a></li>
-							<li><a href="#">About US</a></li>
-							<li><a href="#">Feedback</a></li>
+							<li><a href="#"><spring:message code="welcome.showtimes" /></a></li>
+							<li><a href="#"><spring:message code="welcome.booknow" /></a></li>
+							<li><a href="#"><spring:message code="welcome.aboutus" /></a></li>
+							<li><a href="#"><spring:message code="welcome.feedback" /></a></li>
 						</ul>
 					</nav>
 				</div>
@@ -265,9 +282,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //nav -->
 
 
-<!-- banner -->
-	<div id="slidey" style="display: none;">
-	
+	<!-- banner -->
+	<!-- <div id="slidey" style="display: none;">
+
 		<ul>
 			<li><img src="resources/early/images/5.jpg" alt=" ">
 				<p class='title'>
@@ -323,7 +340,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					(Patrick Wilson) and Lorraine Warren come out of a self-imposed
 					sabbatical to travel to Enfield, a borough in north ...</p></li>
 		</ul>
-	</div>
+	</div> -->
 
 	<div ng-app="frontApp">
 		<!-- content goes here -->
@@ -333,13 +350,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="resources/early/js/jquery.slidey.js"></script>
 	<script src="resources/early/js/jquery.dotdotdot.min.js"></script>
 	<script type="text/javascript">
-		$("#slidey").slidey({
-			interval : 8000,
-			listCount : 5,
-			autoplay : false,
-			showList : true
-		});
-		$(".slidey-list-description").dotdotdot();
+	$(document).ready(function() {
+		setTimeout(function() {
+			$("#slidey").slidey({
+				interval : 8000,
+				listCount : 5,
+				autoplay : false,
+				showList : true
+			});
+			$(".slidey-list-description").dotdotdot();	
+		})
+		
+	})
+		
 	</script>
 	<!-- //banner -->
 	<!-- banner-bottom -->
