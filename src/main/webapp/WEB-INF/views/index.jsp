@@ -344,8 +344,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- <button id="myButton" class="btn btn-warning">Book Now</button> -->
 	<script>
 	function mytest(){
-		alert("hello");
-		var num = 1;
+		var num = 11;
 		if (num == 1) {
 			location.href = "#/signin";
 		} else {

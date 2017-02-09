@@ -26,8 +26,8 @@
 							<p>Some sample text. Some sample text.</p>
 
 							<p>
-								<button data-ng-click="delete(movie.movieId)"
-									class="btn btn-danger">Delete</button>
+								<a data-ng-click="delete(movie.movieId)" data-ng-href="#/movies" 
+									class="btn btn-danger">Delete</a>
 								<a data-ng-href="#/updateMovie/{{$index}}" class="btn btn-primary">Update</button>
 							</p>
 

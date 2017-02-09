@@ -90,6 +90,10 @@ angular.module('movieTicketingApp',['ngRoute'])
 		templateUrl:'resources/partials/admin/show.jsp',
 		controller : 'showController'
 	})
+	.when('/login',{
+		templateUrl:'resources/partials/login.jsp',
+		controller : 'movieController'
+	})
 	
 	
     .otherwise({redirectTo:'/'});

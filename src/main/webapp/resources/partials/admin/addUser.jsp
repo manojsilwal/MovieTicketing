@@ -1,4 +1,3 @@
-
 <div class="col-md-4 col-md-offset-4">
 	<h1>{{header}}</h1>
 	<form name="userform" data-ng-submit="postData()" id="registerForm">

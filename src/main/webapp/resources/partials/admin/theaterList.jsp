@@ -1,26 +1,33 @@
 <div class="container-wrapper">
 	<div class="container">
+		<h1>Theater List</h1>
 
-		<div class="page-header">
-			<h1>{{header}}</h1>
-			<p class="lead">This is the movie list page!</p>
-		</div>
+		<table class="table table-striped table-hover">
 
-		<!-- start of thumbnail -->
+			<thead>
+				<tr class="bg-success">
+					<th>User Name</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tr ng-repeat="theater in theaters" class="bg-success">
+				<td>{{ $index + 1 }}</td>
 
-		<div class="row">
-			<ul>
-				<li ng-repeat="theater in theaters">
-					<div>
-						<a href="#/theaters/{{$index}}">
-							<p>Name: {{theater.tname}}</p>
-						</a>
-						<button data-ng-click="delete(theater.theaterId)">Delete</button>
-						<a href="#/updateTheater/{{theater.theaterId}}">Update</a>
-				</li>
-			</ul>
-		</div>
+				<td><a href="#/theaters/{{$index}}">
+						<p>Name: {{theater.tname}}</p>
+				</a></td>
+
+				<td><a href="#/theaters/{{$index}}"> <span
+						class="glyphicon glyphicon-info-sign"></span>
+				</a> <a href="#"><span class="glyphicon glyphicon-remove"></span> </a> <a
+					href="#"> <span class="glyphicon glyphicon-pencil"></span>
+				</a></td>
+			</tr>
+		</table>
 	</div>
 </div>
+
+
+
 
 
