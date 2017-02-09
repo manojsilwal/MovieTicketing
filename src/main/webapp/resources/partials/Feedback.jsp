@@ -1,73 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
 <div class="container">
 	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Send Us your Valuable feedback</h3>
+		<div class="col-md-4 col-md-offset-4">
+			<h4>Send us Your valuable comments and feedback</h4>
+			<br/>
+			<h1>{{header}}</h1>
+			<form name="userform" data-ng-submit="postData()" id="registerForm">
+				<h3>{{headerText}}</h3>
+				<div class="form-group">
+					<label for="name">Name</label> <input type="text"
+						data-ng-model="username" class="form-control" id="name"
+						placeholder="Username">
+					<div style="color: red;" id="nerrors"></div>
 				</div>
-				<div class="panel-body">
-
-
-					<form:form action="addMovie" method="post" modelAttribute="movie"
-						enctype="multipart/form-data">
-						<table>
-							<tr>
-								<td>Enter Name:</td>
-								<td><div class="form-group">
-										<form:input class="form-control" type="text" name="movieName"
-											id="movieName" path="movieName" value="${movie.movieName}" />
-									</div></td>
-							</tr>
-							<tr>
-								<td>Enter Director Name:</td>
-								<td><div class="form-group">
-										<form:input class="form-control" type="text" name="director"
-											id="director" path="director" value="${movie.director}" />
-									</div></td>
-							</tr>
-							<tr>
-								<td>Enter Description:</td>
-								<td><div class="form-group">
-										<form:textarea rows="5" cols="30" class="form-control"
-											type="text" name="description" id="description"
-											path="description" value="${movie.description}" />
-									</div></td>
-							</tr>
-							<tr>
-								<td>Enter Release Date:</td>
-								<td><div class="form-group">
-										<form:input class="form-control" type="date"
-											name="releaseDate" id="releaseDate" path="releaseDate"
-											value="${movie.releaseDate}" />
-									</div></td>
-							</tr>
-							<tr>
-								<td>Enter Actors Name:</td>
-								<td><div class="form-group">
-										<form:input class="form-control" type="text" name="actors"
-											id="actors" path="actors" value="${movie.actors}" />
-									</div></td>
-							</tr>
-							<tr>
-								<td>Choose Cover Image:</td>
-								<td><div class="form-group">
-										<form:input class="input-group form-control" type="file"
-											path="image" />
-									</div></td>
-							</tr>
-							<tr>
-								<td></td>
-								<td><input class="btn btn-lg btn-warning btn-block"
-									type="submit" value="submit"></td>
-							</tr>
-						</table>
-					</form:form>
-
+				<div class="form-group">
+					<label for="email">Email</label> <input type="email"
+						data-ng-model="email" class="form-control" id="email"
+						placeholder="Email">
+					<div style="color: red;" id="eerrors"></div>
 				</div>
-			</div>
+				<div class="form-group">
+					<label for="phone">Phone </label> <input type="password"
+						data-ng-model="phone" class="form-control" id="phone"
+						placeholder="phone">
+					<div style="color: red;" id="perrors"></div>
+				</div>
+				<div class="form-group">
+					<label for="message">Message </label>
+					<textarea cols="5" rows="5" data-ng-model="message"
+						class="form-control" id="message" placeholder="message"></textarea>
+					<div style="color: red;" id="perrors"></div>
+				</div>
+
+
+				<input type="submit" id="submit" value="Send"
+					class="btn btn-default" />
+			</form>
 		</div>
 	</div>
 </div>

@@ -25,10 +25,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
+	
+	
+	
 		
 	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
 
 
 
@@ -145,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li><a href="?lang=zh_CN"
 						style="display: inline; padding: 0px;"><img alt="Nepali flag"
 							src="resources/images/np.png" style="width: 40px; height: 45px;"></a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal"><spring:message
+					<li><a href="#/signin"><spring:message
 								code="welcome.login" /></a></li>
 				</ul>
 			</div>
@@ -321,17 +329,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div ng-view></div>
 	</div>
 
-	<button id="myButton" class="btn btn-warning">Book Now</button>
-	<script type="text/javascript">
-		document.getElementById("myButton").onclick = function() {
-			var num = 1;
-			if (num != 1) {
-				location.href = "#/feedback";
-			} else {
-				location.href = "#/theater";
-			}
-		};
+
+	<!-- <script>
+		$(document).ready(function() {
+			setTimeout(function() {
+				var datetime = "2000-01-01 01:00:00 UTC";
+				var myTime = datetime.substr(11, 5);
+				alert(myTime);
+				alert($("mytime").text())
+			})
+		})
+	</script> -->
+
+	<!-- <button id="myButton" class="btn btn-warning">Book Now</button> -->
+	<script>
+	function mytest(){
+		alert("hello");
+		var num = 1;
+		if (num == 1) {
+			location.href = "#/signin";
+		} else {
+			location.href = "#/theater";
+		}
+	}
 	</script>
+	
+	
+	<!-- <script type="text/javascript">
+		$(document).ready(function() {
+			setTimeout(function mytest() {
+				alert("hey baby");
+
+				document.getElementById("myButton").onclick = function() {
+					var num = 1;
+					if (num != 1) {
+						location.href = "#/feedback";
+					} else {
+						location.href = "#/theater";
+					}
+				};
+			})
+		})
+	</script> -->
 
 	<script src="resources/early/js/jquery.slidey.js"></script>
 	<script src="resources/early/js/jquery.dotdotdot.min.js"></script>

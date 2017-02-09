@@ -9,12 +9,12 @@ angular.module('frontApp', [ 'ngRoute' ])
 		templateUrl : 'resources/partials/ShowTime.jsp',
 		controller : 'movieController'
 	})
-	.when('/theater/:movieId',{
+	.when('/theater',{
     	templateUrl:'resources/partials/MyTheaters.jsp',
     	controller: 'movieController'
     	})
     
-    .when('/booknow/:theaterId',{
+    .when('/booknow',{
     	templateUrl:'resources/partials/BookNow.jsp',
     	controller: 'movieController'
     	})
@@ -35,6 +35,11 @@ angular.module('frontApp', [ 'ngRoute' ])
 	
 	.when('/signin', {
 		templateUrl : 'resources/partials/usersignin.jsp',
+		controller : 'movieController'
+	})
+	
+	.when('/register', {
+		templateUrl : 'resources/partials/userregister.jsp',
 		controller : 'movieController'
 	})
 	
