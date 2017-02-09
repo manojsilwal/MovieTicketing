@@ -13,16 +13,16 @@
 					<div class="movie-info">
 
 						<p>
-							<span class="col-md-5 col-xs-6">Releasing Date :</span> <span
+							<span class="col-md-5 col-xs-6">Start Time :</span> <span
 								class="col-md-7 col-xs-6">{{shows[whichShow].startTime}}</span>
 						</p>
 						<p>
-							<span class="col-md-5 col-xs-6">Director :</span> <span
+							<span class="col-md-5 col-xs-6">End Time :</span> <span
 								class="col-md-7 col-xs-6">{{shows[whichShow].endTime}}</span>
 						</p>
 
 						<p>
-							<span class="col-md-5 col-xs-6">Cast :</span> <span
+							<span class="col-md-5 col-xs-6">Available seat :</span> <span
 								class="col-md-7 col-xs-6">
 								{{shows[whichShow].totalAvailableSheet}}
 							</span>

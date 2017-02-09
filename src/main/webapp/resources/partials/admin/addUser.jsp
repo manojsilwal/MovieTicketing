@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<body>
-	<div class="addForm">
+
+	<div class="col-md-4 col-md-offset-4">
 		<h1>{{header}}</h1>
 		<form data-ng-submit="postData()" id="registerForm">
 			<h3>{{headerText}}</h3>
@@ -40,40 +39,5 @@
 			<pre>Form data ={{list}}</pre>
 		</form>
 	</div>
-	<script type="text/javascript">
-		$(document).ready(
-				function() {
-					$("#registerForm").validate(
-							{
+	
 
-								rules : {
-									name : {
-										required : true,
-										minlength : 3
-									},
-									email : {
-										required : true,
-										email : true
-									},
-									password : {
-										required : true,
-										minlength : 5
-									}
-								},
-								highlight : function(element) {
-									$(element).closest('.form-group')
-											.removeClass('has-success')
-											.addClass('has-error');
-								},
-								unhighlight : function(element) {
-									$(element).closest('.form-group')
-											.removeClass('has-error').addClass(
-													'has-success');
-								}
-							});
-				});
-	</script>
-
-
-</body>
-</html>
