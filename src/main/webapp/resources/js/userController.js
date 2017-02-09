@@ -17,7 +17,7 @@ function userController($scope, $http, userService, $routeParams){
 	//delete movies
 	$scope.delete = function(index){
 		userService.delete(index).success(function(data, status, headers, config) {
-			console.log(data);
+			window.location.href="/FinalProject/admin#/users";
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
 		});
@@ -64,6 +64,7 @@ function userController($scope, $http, userService, $routeParams){
 		
 		userService.submit(user).success(function(data, status, headers, config) {
 			$scope.list.push(data);
+			location.href="/FinalProject/admin#/users";
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
 		});

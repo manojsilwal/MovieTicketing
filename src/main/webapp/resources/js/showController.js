@@ -21,6 +21,7 @@ function showController($scope, $http, showService, $routeParams){
 	$scope.delete = function(index){
 		showService.delete(index).success(function(data, status, headers, config) {
 			console.log(data);
+			location.href = "/FinalProject/admin#/shows";
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
 		});
@@ -39,6 +40,7 @@ function showController($scope, $http, showService, $routeParams){
 		
 		showService.put(show).success(function(data, status, headers, config) {
 			console.log(data);
+			location.href = "/FinalProject/admin#/shows";
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
 		});
@@ -56,6 +58,7 @@ function showController($scope, $http, showService, $routeParams){
 		
 		showService.submit(show).success(function(data, status, headers, config) {
 			$scope.list.push(data);
+			location.href = "/FinalProject/admin#/shows";
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
 		});

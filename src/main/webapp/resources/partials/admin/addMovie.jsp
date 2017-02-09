@@ -47,8 +47,10 @@
 					id="releaseDate" type="date" data-ng-model="date"
 					class="form-control" placeholder="Release Date">
 			</div>
-			<input type="submit" id="submit" value="Submit"
-				class="btn btn-default" /><br>
+			<!-- <input type="submit" id="submit" value="Submit"
+				class="btn btn-default" /><br> -->
+				
+			<a type="button" ng-click="submit()">Submit</a>
 
 			<h4>You submitted below data through post:</h4>
 			<pre>Form data ={{list}}</pre>
