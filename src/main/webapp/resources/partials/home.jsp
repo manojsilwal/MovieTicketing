@@ -132,7 +132,7 @@
 									</h6>
 								</div>
 								<div class="mid-2 agile_mid_2_home">
-									<a class="btn btn-warning" href="#/theater">Book Now</a>
+									<a class="btn btn-warning" ng-click="setMovie(movie)" href="#/theater/{{movie.movieId}}">Book Now</a>
 									<div class="clearfix"></div>
 								</div>
 							</div>

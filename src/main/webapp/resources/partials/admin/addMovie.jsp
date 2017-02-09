@@ -11,14 +11,13 @@
 	})
 </script>
 <body>
-
-	<div class="addForm">
+ 	<div class="addForm" >
 		<h1>{{header}}</h1>
-		<form data-ng-submit="postData()">
+		<form data-ng-submit="postData()" >
 			<h3>{{headerText}}</h3>
 			<div class="form-group">
 				<label for="name">Name</label> 
-				<input type="text" data-ng-model="movieName" class="form-control" id="name" placeholder="Name">
+				<input type="text" data-ng-model="movieName" class="form-control" id="name" placeholder="Name" value="">
 			</div>
 			<div class="form-group">
 				<label for="dname">Director Name</label> 
