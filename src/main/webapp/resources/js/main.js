@@ -9,12 +9,12 @@ angular.module('frontApp', [ 'ngRoute' ])
 		templateUrl : 'resources/partials/ShowTime.jsp',
 		controller : 'movieController'
 	})
-	.when('/theater/:movieId',{
+	.when('/theater',{
     	templateUrl:'resources/partials/MyTheaters.jsp',
     	controller: 'movieController'
     	})
     
-    .when('/booknow/:theaterId',{
+    .when('/booknow',{
     	templateUrl:'resources/partials/BookNow.jsp',
     	controller: 'movieController'
     	})

@@ -8,7 +8,7 @@
 		</div>
 		<div class="col-md-1">
 			<div class="responsive-circle nyc-circle">
-				<a href="#/booknow/{{theater.theaterId}}" ng-click="setTheater(theater);"><div class="circle-inner">10:00</div></a>
+				<a href="#/booknow" ng-click="setTheater(theater);"><div class="circle-inner">10:00</div></a>
 			</div>
 		</div>
 
