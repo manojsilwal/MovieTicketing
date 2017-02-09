@@ -76,22 +76,24 @@
 					<div class="panel-body">
 
 
-						<form:form action="addMovie" method="post" modelAttribute="movie"
-							enctype="multipart/form-data">
+						<form:form name="myform" action="addMovie" method="post"
+							modelAttribute="movie" enctype="multipart/form-data"
+							onsubmit="return validation();">
 							<table>
 								<tr>
 									<td>Enter Name:</td>
 									<td><div class="form-group">
 											<form:input class="form-control" type="text" name="movieName"
-												id="movieName" path="movieName" value="${movie.movieName}"
-												pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" />
+												id="movieName" path="movieName" value="${movie.movieName}" />
+											<div style="color: red;" id="merrors"></div>
 										</div></td>
 								</tr>
 								<tr>
 									<td>Enter Director Name:</td>
 									<td><div class="form-group">
 											<form:input class="form-control" type="text" name="director"
-												id="director" path="director" value="${movie.director}" required="required"/>
+												id="director" path="director" value="${movie.director}" />
+											<div style="color: red;" id="derrors"></div>
 										</div></td>
 								</tr>
 								<tr>
@@ -100,6 +102,7 @@
 											<form:textarea rows="5" cols="30" class="form-control"
 												type="text" name="description" id="description"
 												path="description" value="${movie.description}" />
+											<div style="color: red;" id="dserrors"></div>
 										</div></td>
 								</tr>
 								<tr>
@@ -108,6 +111,7 @@
 											<form:input class="form-control" type="date"
 												name="releaseDate" id="releaseDate" path="releaseDate"
 												value="${movie.releaseDate}" />
+											<div style="color: red;" id="rerrors"></div>
 										</div></td>
 								</tr>
 								<tr>
@@ -115,6 +119,7 @@
 									<td><div class="form-group">
 											<form:input class="form-control" type="text" name="actors"
 												id="actors" path="actors" value="${movie.actors}" />
+											<div style="color: red;" id="aerrors"></div>
 										</div></td>
 								</tr>
 								<tr>
@@ -122,6 +127,7 @@
 									<td><div class="form-group">
 											<form:input class="input-group form-control" type="file"
 												path="image" />
+											<div style="color: red;" id="cerrors"></div>
 										</div></td>
 								</tr>
 								<tr>
@@ -137,6 +143,49 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		function validation() {
+			if (document.myform.movieName.value == ""
+					&& document.myform.director.value == ""
+					&& document.myform.description.value == ""
+					&& document.myform.releaseDate.value == ""
+					&& document.myform.actors.value == ""
+					&& document.myform.image.value == "") {
+				document.getElementById('merrors').innerHTML = "Please enter a Movie Name";
+				document.getElementById('derrors').innerHTML = "Please enter a Director Name";
+				document.getElementById('dserrors').innerHTML = "Please enter a Description";
+				document.getElementById('rerrors').innerHTML = "Please enter a Release Date";
+				document.getElementById('aerrors').innerHTML = "Please enter a Actor Name";
+				document.getElementById('cerrors').innerHTML = "Please enter a Valid Image";
+				return false;
+			}
+			if (document.myform.movieName.value == "") {
+				document.getElementById('merrors').innerHTML = "Please enter a Movie Name";
+				return false;
+			}
+			if (document.myform.director.value == "") {
+				document.getElementById('derrors').innerHTML = "Please enter a Director Name";
+				return false;
+			}
+			if (document.myform.description.value == "") {
+				document.getElementById('dserrors').innerHTML = "Please enter a Description";
+				return false;
+			}
+			if (document.myform.releaseDate.value == "") {
+				document.getElementById('rerrors').innerHTML = "Please enter a Release Date";
+				return false;
+			}
+			if (document.myform.actors.value == "") {
+				document.getElementById('aerrors').innerHTML = "Please enter a Actor Name";
+				return false;
+			}
+			if (document.myform.image.value == "") {
+				document.getElementById('cerrors').innerHTML = "Please enter a Valid Image";
+				return false;
+			}
+		}
+	</script>
 
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<!-- bootstrap js -->

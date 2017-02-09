@@ -31,6 +31,11 @@ angular.module('frontApp', [ 'ngRoute' ])
 		controller : 'movieController'
 	})
 	
+	.when('/signin', {
+		templateUrl : 'resources/partials/usersignin.jsp',
+		controller : 'movieController'
+	})
+	
 	.otherwise({
 		redirectTo : '/'
 	});
