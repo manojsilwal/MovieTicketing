@@ -64,7 +64,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String afteraddMovie(Movie movie) {
-		return "index";
+		return "admin";
 	}
 
 	@RequestMapping(value = "/images/{movieId}", method = RequestMethod.GET)

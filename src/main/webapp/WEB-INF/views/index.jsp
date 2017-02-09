@@ -18,10 +18,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
 <script type="application/x-javascript">
 	
+	
+	
+	
+	
+	
+	
+	
 		
 	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
+
+
+
 
 
 
@@ -307,6 +321,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div ng-view></div>
 	</div>
 
+	<button id="myButton" class="btn btn-warning">Book Now</button>
+	<script type="text/javascript">
+		document.getElementById("myButton").onclick = function() {
+			var num = 1;
+			if (num != 1) {
+				location.href = "#/feedback";
+			} else {
+				location.href = "#/theater";
+			}
+		};
+	</script>
+
 	<script src="resources/early/js/jquery.slidey.js"></script>
 	<script src="resources/early/js/jquery.dotdotdot.min.js"></script>
 	<script type="text/javascript">
@@ -453,6 +479,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 	<!-- //here ends scrolling icon -->
+
+
+
+
 
 </body>
 </html>

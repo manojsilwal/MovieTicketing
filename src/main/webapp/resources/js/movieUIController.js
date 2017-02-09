@@ -4,6 +4,8 @@ movie.service("movieService", movieService);
 
 movie.service("showService", showService);
 
+/*movie.service("loginService", loginService);
+*/
 movie.service("theaterService", theaterService);
  
 movie.service("ticketService", ticketService);
@@ -19,7 +21,7 @@ movieService.$inject = ['$http'];
 movie.controller("movieController", movieController);
 
 movieController.$inject = ['$scope','$http', 'movieService','$routeParams'
-	,'ticketService','theaterService','showService'];
+	,'ticketService','theaterService','showService'/*'loginService'*/];
 
 
 //------------movie controller -----------------------
@@ -29,8 +31,40 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 	$scope.movieIndex = $routeParams.movieId;
 	$scope.showIndex = $routeParams.showId;
 	$scope.theaterIndex = $routeParams.theaterId;
+	$scope.seats = [];
 	
-	console.log("movieIndex = "+$scope.movieIndex+" showIndex = "+$scope.showIndex+" $scope.theaterIndex "+ $scope.theaterIndex);
+	$scope.getTicket = function(){
+		var totalPrice;
+		$scope.ticket = ticketService.getTicket();
+		
+		$scope.seat = ticketService.getSeat();
+		
+		angular.forEach($scope.seat, function(value, key){
+			totalPrice *= 300;
+		   });
+				
+		$scope.ticket.price = totalPrice
+		
+		console.log($scope.ticket);
+		console.log($scope.price);
+		
+		return $scope.ticket;
+	}
+	
+	
+	
+	$scope.seatCheck = function(){
+		var seat = document.getElementById("seats");
+		 for (i = 0; i < seat.length; i++) {
+		        if (seat[i].checked) {
+		        	$scope.seats.push(seat[i].value);
+		        }      
+		 }
+		 ticketService.setSeat($scope.seats);
+		 ticketService.setTicket();
+		 $scope.getTicket();
+	}
+	
 	
 	$scope.shows = [];
 	
@@ -43,10 +77,10 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 	}
 	
 	$scope.setTheater = function(theater){
-		console.log(theater);
 		ticketService.setThreater(theater);
-		console.log(theater);
-		ticketService.sendTicket();
+		$scope.movie = ticketService.getMovie();
+		console.log($scope.movie);
+		return ticketService.getMovie();
 	}
 	
 	$scope.setShow = function(show){
@@ -86,6 +120,18 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 function ticketService($http){
 	var service = this;
 	
+	service.setSeat = function(seat){
+		service.seat = seat;
+	}
+	
+	service.getSeat = function(){
+		return service.seat;
+	}
+	
+	service.getTicket = function(){
+		return service.ticket;
+	} 
+	
 	service.setMovie = function(movie){
 		service.movie = movie;
 	}
@@ -112,19 +158,19 @@ function ticketService($http){
 	
 	
 	//Post movie
-	service.sendTicket = function(){
+	service.setTicket = function(){
 		
 		service.ticket = {
 				"theater" : service.theater,
 				"movie" : service.movie ,
+				"seat" :	service.seat
 		};
 		
-		service.postData(service.ticket);
 	
 	}
 	
-	service.postData = function(ticket){
-		$http.post('tickets', ticket).success(function(data, status, headers, config) {
+	service.postData = function(){
+		$http.post('tickets', service.ticket).success(function(data, status, headers, config) {
 			//$scope.list.push(data);
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
@@ -191,6 +237,33 @@ function movieService($http){
     
 }
 
+function UserService($http){
+	
+	var service = this;
+	
+	service.userList = [];
+	
+	service.user = {};
+	
+	service.getUser = function() {
+        return service.user;
+    }
+
+    service.setUser = function(user) {
+    	service.user = user;
+    	console.log(service.user);
+    }
+	
+	service.getUsers = function(init) {           
+         $http({method: 'GET', url: 'user'}).success(function(data, status, headers, config){
+            init(data);
+    	    }).
+    	    error(function(data, status, headers, config) {
+    	    });
+	}
+	
+}
+
 
 function showService($http){
 	
@@ -208,7 +281,7 @@ function showService($http){
     }
 	
 	service.getShows = function(init) {           
-        return $http({method: 'GET', url: 'show'}).success(function(data, status, headers, config){
+         $http({method: 'GET', url: 'show'}).success(function(data, status, headers, config){
         	service.setItems(data);
             console.log(data);
             init(data);
@@ -218,3 +291,14 @@ function showService($http){
 	}
 	
 }
+
+
+/*function loginService($http){
+	
+		var service = this;
+		
+		service.user = {};
+		
+		service.user = 
+		
+}*/

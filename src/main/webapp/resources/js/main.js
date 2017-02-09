@@ -23,8 +23,18 @@ angular.module('frontApp', [ 'ngRoute' ])
 		controller : 'movieController'
 	})
 	
+	.when('/checkOut', {
+		templateUrl : 'resources/partials/checkOut.jsp',
+		controller : 'movieController'
+	})
+	
 	.when('/feedback', {
 		templateUrl : 'resources/partials/Feedback.jsp',
+		controller : 'movieController'
+	})
+	
+	.when('/signin', {
+		templateUrl : 'resources/partials/usersignin.jsp',
 		controller : 'movieController'
 	})
 	
