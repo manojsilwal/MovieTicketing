@@ -75,7 +75,7 @@ function movieController($scope, $http, movieService, $routeParams){
 	$scope.getMovies = function(){
 		movieService.getMovies().success(function(data, status, headers, config){
         $scope.movies = data;
-        movieService.setInfo(data);
+        movieService.setItems(data);
         console.log(data);
 	    }).
 	    error(function(data, status, headers, config) {
@@ -94,17 +94,16 @@ function movieService($http){
 	var service = this;
 		
 	var itemList = [];
+	
+	service.setItems = function(movies){
+		service.itemList = movies;
+	}
 
 
-	service.getInfo = function() {
-        return itemList;
+	service.getItems = function() {
+        return service.itemList;
     }
 
-    service.setInfo = function(value) {
-    	itemList = value;
-    	console.log(itemList);
-    }
-		
 	service.getMovies = function() {           
         return $http({method: 'GET', url: 'movies'});
 	}
