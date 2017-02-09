@@ -5,14 +5,14 @@
 			<form name="userform" data-ng-submit="postData()" id="registerForm">
 				<h3>{{headerText}}</h3>
 				<div class="form-group">
-					<label for="name">Name</label> <input type="text"
-						data-ng-model="username" class="form-control" id="name"
-						placeholder="Username">
+					<label for="name">Email</label> <input ng-data-model="email" type="eamil"
+						data-ng-model="email" class="form-control" id="email"
+						placeholder="Email">
 					<div style="color: red;" id="rerrors"></div>
 				</div>
 				
 				<div class="form-group">
-					<label for="password">Password</label> <input type="password"
+					<label for="password">Password</label> <input ng-data-model="password" type="password"
 						data-ng-model="password" class="form-control" id="password"
 						placeholder="Password">
 					<div style="color: red;" id="rerrors"></div>
