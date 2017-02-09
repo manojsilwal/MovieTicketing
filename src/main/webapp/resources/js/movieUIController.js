@@ -4,31 +4,32 @@ movie.service("movieService", movieService);
 
 movie.service("showService", showService);
 
+
 movie.service("loginService", loginService);
 
 movie.service("theaterService", theaterService);
- 
+
 movie.service("ticketService", ticketService);
 
-movie.service("usersService", usersService);
 
+movie.service("usersService", userService);
 showService.$inject = ['$http'];
 
-ticketService.$inject = ['$http'];
+ticketService.$inject = [ '$http' ];
 
-theaterService.$inject = ['$http'];
+theaterService.$inject = [ '$http' ];
 
-movieService.$inject = ['$http'];
+movieService.$inject = [ '$http' ];
 
 usersService.$inject = ['$http'];
 
 movie.controller("movieController", movieController);
 
+
 movieController.$inject = ['$scope','$http', 'movieService','$routeParams'
 	,'ticketService','theaterService','showService','loginService','usersService','$location'];
 
-
-//------------movie controller -----------------------
+// ------------movie controller -----------------------
 
 function movieController($scope, $http, movieService, $routeParams, ticketService, theaterService, showService,loginService, usersService,$location){
 	
@@ -69,8 +70,9 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 	$scope.getTicket = function(){
 		var totalPrice;
 		$scope.ticket = ticketService.getTicket();
-		
+
 		$scope.seat = ticketService.getSeat();
+
 		
 		angular.forEach($scope.seat, function(value, key){
 			totalPrice = 300;
@@ -80,29 +82,38 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 		
 		console.log($scope.ticket);
 		console.log($scope.price);
-		
+
 		return $scope.ticket;
 	}
 	
 	
-	
-	$scope.seatCheck = function(){
+
+/*
+	function testy() {
+		var datetime = "2000-01-01 01:00:00 UTC";
+		//var datetime= document.getElementById("mytime").innerHTML;
+		//var myTime = datetime.substr(11, 5);
+		document.getElementById("mytime").innerHTML = datetime;
+		}
+		document.getElementById("mytime").innerHTML = myTime;
+	testy();*/
+
+	$scope.seatCheck = function() {
 		var seat = document.getElementById("seats");
-		 for (i = 0; i < seat.length; i++) {
-		        if (seat[i].checked) {
-		        	$scope.seats.push(seat[i].value);
-		        }      
-		 }
-		 ticketService.setSeat($scope.seats);
-		 ticketService.setTicket();
-		 $scope.getTicket();
+		for (i = 0; i < seat.length; i++) {
+			if (seat[i].checked) {
+				$scope.seats.push(seat[i].value);
+			}
+		}
+		ticketService.setSeat($scope.seats);
+		ticketService.setTicket();
+		$scope.getTicket();
 	}
-	
-	
+
 	$scope.shows = [];
-	
+
 	$scope.movies = [];
-	
+
 	$scope.theaters = [];
 	
 	$scope.setMovie = function(movie){
@@ -114,15 +125,15 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 			$location.path("/theater");
 		}
 	}
-	
-	$scope.setTheater = function(theater){
+
+	$scope.setTheater = function(theater) {
 		ticketService.setThreater(theater);
 		$scope.movie = ticketService.getMovie();
 		console.log($scope.movie);
 		return ticketService.getMovie();
 	}
-	
-	$scope.setShow = function(show){
+
+	$scope.setShow = function(show) {
 		console.log(show);
 		ticketService.setShow(show);
 		console.log(ticketService.getShow());
@@ -134,14 +145,14 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 		$scope.movies = values;
 	}
 	movieService.getMovies(setMovies);
-	
-	
-	//get Show data
-	function setShows(values){
+
+	// get Show data
+	function setShows(values) {
 		$scope.shows = values;
 	}
-	
+
 	showService.getShows(setShows);
+
 	
 	
 	function setUsers(values){
@@ -162,6 +173,7 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 	
 	theaterService.getUserData(setUsers);
 	
+
 	theaterService.getTheaters(setTheaters);
 	
 	
@@ -172,68 +184,73 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 	
 }
 
+
 function ticketService($http){
 	var service = this;
-	
-	service.setSeat = function(seat){
+
+	service.setSeat = function(seat) {
 		service.seat = seat;
 	}
-	
-	service.getSeat = function(){
+
+	service.getSeat = function() {
 		return service.seat;
 	}
-	
-	service.getTicket = function(){
+
+	service.getTicket = function() {
 		return service.ticket;
-	} 
-	
-	service.setMovie = function(movie){
+	}
+
+	service.setMovie = function(movie) {
 		service.movie = movie;
 	}
-	
-	service.getMovie = function(){
+
+	service.getMovie = function() {
 		return service.movie;
 	}
-	
-	service.getThreater = function(){
+
+	service.getThreater = function() {
 		return service.theater;
 	}
-	
-	service.setThreater = function(theater){
+
+	service.setThreater = function(theater) {
 		service.theater = theater;
 	}
-	
-	service.setShow = function(show){
+
+	service.setShow = function(show) {
 		service.show = show;
 	}
-	
-	service.getShow = function(){
+
+	service.getShow = function() {
 		return service.show;
 	}
-	
-	
-	//Post movie
-	service.setTicket = function(){
-		
+
+	// Post movie
+	service.setTicket = function() {
+
 		service.ticket = {
-				"theater" : service.theater,
-				"movie" : service.movie ,
-				"seat" :	service.seat
+			"theater" : service.theater,
+			"movie" : service.movie,
+			"seat" : service.seat
 		};
-		
-	
+
 	}
-	
-	service.postData = function(){
-		$http.post('tickets', service.ticket).success(function(data, status, headers, config) {
-			//$scope.list.push(data);
-		}).error(function(data, status, headers, config) {
-			alert( "Exception details: " + JSON.stringify({data: data}));
+
+	service.postData = function() {
+		$http.post('tickets', service.ticket).success(
+				function(data, status, headers, config) {
+					// $scope.list.push(data);
+				}).error(function(data, status, headers, config) {
+			alert("Exception details: " + JSON.stringify({
+				data : data
+			}));
 		});
 
 	}
 }
 
+function userService(){
+	
+}
 
 
 function theaterService($http,$location){
@@ -278,11 +295,10 @@ function theaterService($http,$location){
 	
 	service.loggedIn = false; 
 	
-	
-	
+
 	service.getItems = function() {
-        return itemList;
-    }
+		return itemList;
+	}
 
     service.setItems = function(value) {
     	itemList = value;
@@ -319,66 +335,68 @@ function theaterService($http,$location){
 	}
 }
 
-function movieService($http){
+function movieService($http) {
 	var service = this;
-	
-	var itemList = [];
-		
-	service.getItems = function() {
-        return itemList;
-    }
 
-    service.setItems = function(value) {
-    	itemList = value;
-    	console.log(itemList);
-    }
-	
-	service.getMovies = function(init) {           
-        return $http({method: 'GET', url: 'movies'}).success(function(data, status, headers, config){
-        	service.setItems(data);
-            console.log(data);
-            init(data);
-    	    }).
-    	    error(function(data, status, headers, config) {
-    	    });
+	var itemList = [];
+
+	service.getItems = function() {
+		return itemList;
 	}
-    
+
+	service.setItems = function(value) {
+		itemList = value;
+		console.log(itemList);
+	}
+
+	service.getMovies = function(init) {
+		return $http({
+			method : 'GET',
+			url : 'movies'
+		}).success(function(data, status, headers, config) {
+			service.setItems(data);
+			console.log(data);
+			init(data);
+		}).error(function(data, status, headers, config) {
+		});
+	}
+
 	service.submit = function(movie) {
-    	return $http.post('ticket', ticket);
+		return $http.post('ticket', ticket);
 	};
-  
-    
+
 }
 
 
-function showService($http){
-	
+function showService($http) {
+
+
 	var service = this;
-	
+
 	var itemList = [];
-	
+
 	service.getItems = function() {
-        return itemList;
-    }
-
-    service.setItems = function(value) {
-    	itemList = value;
-    	console.log(itemList);
-    }
-	
-	service.getShows = function(init) {           
-         $http({method: 'GET', url: 'show'}).success(function(data, status, headers, config){
-        	service.setItems(data);
-            console.log(data);
-            init(data);
-    	    }).
-    	    error(function(data, status, headers, config) {
-    	    });
+		return itemList;
 	}
-	
+
+	service.setItems = function(value) {
+		itemList = value;
+		console.log(itemList);
+	}
+
+	service.getShows = function(init) {
+		$http({
+			method : 'GET',
+			url : 'show'
+		}).success(function(data, status, headers, config) {
+			service.setItems(data);
+			console.log(data);
+			init(data);
+		}).error(function(data, status, headers, config) {
+		});
+	}
+
 }
-
-
 
 
 function loginService($http){
