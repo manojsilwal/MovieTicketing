@@ -41,6 +41,7 @@ public class ShowController {
 	 */
 	@RequestMapping(value = "/show", method = RequestMethod.POST)
 	public Show addShow(@RequestBody Show show) {
+		System.out.println("---------------------------"+show.getEndTime());
 		String showId = "";
 		try {
 			showId=String.valueOf(show.getShowId());

@@ -10,32 +10,30 @@
 	href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900'
 	rel='stylesheet' type='text/css'>
 
-
-
-<link
-	href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
-	rel="stylesheet">
-
-
-
-
-
-
 <link rel="stylesheet" href="resources/css/style.css">
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<!-- bootstrap css -->
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/bootstrap-theme.min.css">
 
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 
-<link rel="stylesheet" href="resources/css/jquery.datetimepicker.min.css" >
+<link rel="stylesheet" href="resources/css/jquery.datetimepicker.css">
 
 
+<!--bootstrap date-time picker-->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.45/css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" />
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
 
-<!-- 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 <script type="text/javascript"
-	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js">	
-	
-</script> -->
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
 <body data-ng-app='movieTicketingApp'>
 
 	<!-- start of nav -->
@@ -104,31 +102,30 @@
 	<div ng-view></div>
 
 
-	<script
-		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script
-		src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/jquery.datetimepicker.min.js"></script>
+	<!-- bootstrap js -->
+	<script src="resources/js/bootstrap.min.js"></script>
 
-
-
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+
+	<!--bootstrap date-time picker-->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.45/js/bootstrap-datetimepicker.min.js"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
 	<script src="resources/js/app.js"></script>
+
+	<script src="resources/js/jquery.datetimepicker.full.min.js"></script>
+
+
 	<script src="resources/js/userController.js"></script>
 	<script src="resources/js/movieController.js"></script>
 
 	<script src="resources/js/theaterController.js"></script>
 	<script src="resources/js/showController.js"></script>
-
-	<script type="text/javascript">
-		$('#example').datetimepicker();
-	</script>
 
 </body>
 </html>

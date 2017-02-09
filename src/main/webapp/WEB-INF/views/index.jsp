@@ -1,5 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,13 +12,17 @@
 <meta name="keywords"
 	content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
 <script type="application/x-javascript">
+	
 		
 	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 
 </script>
@@ -79,7 +84,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <!-- //banner-bottom-plugin -->
 
-<link href="resources/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="resources/css/style.css" rel="stylesheet" type="text/css"
+	media="all" />
 
 
 <link
@@ -119,14 +125,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3l_sign_in_register">
 				<ul>
 					<li><spring:message code="welcome.lagin" />:</li>
-					<li><a href="?lang=en"
-						style="display: inline; padding: 0px;"><img
+					<li><a href="?lang=en" style="display: inline; padding: 0px;"><img
 							alt="American flag" src="resources/images/us.png"
 							style="width: 40px; height: 45px;"></a></li>
 					<li><a href="?lang=zh_CN"
 						style="display: inline; padding: 0px;"><img alt="Nepali flag"
 							src="resources/images/np.png" style="width: 40px; height: 45px;"></a></li>
-					<li><a href="#" data-toggle="modal" data-target="#myModal"><spring:message code="welcome.login" /></a></li>
+					<li><a href="#" data-toggle="modal" data-target="#myModal"><spring:message
+								code="welcome.login" /></a></li>
 				</ul>
 			</div>
 			<div class="clearfix"></div>
@@ -215,9 +221,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					id="bs-example-navbar-collapse-1">
 					<nav>
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="index.html"><spring:message code="welcome.home" /></a></li>
+							<li class="active"><a href="#/"><spring:message
+										code="welcome.home" /></a></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown"><spring:message code="welcome.ourtheater" /> <b class="caret"></b></a>
+								data-toggle="dropdown"><spring:message
+										code="welcome.ourtheater" /> <b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
 										<div class="col-sm-4">
@@ -255,7 +263,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</li>
 								</ul></li>
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
-								data-toggle="dropdown"><spring:message code="welcome.movies" /> <b class="caret"></b></a>
+								data-toggle="dropdown"><spring:message code="welcome.movies" />
+									<b class="caret"></b></a>
 								<ul class="dropdown-menu multi-column columns-3">
 									<li>
 										<div class="col-sm-6">
@@ -271,10 +280,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="clearfix"></div>
 									</li>
 								</ul></li>
-							<li><a href="#"><spring:message code="welcome.showtimes" /></a></li>
-							<li><a href="#"><spring:message code="welcome.booknow" /></a></li>
-							<li><a href="#"><spring:message code="welcome.aboutus" /></a></li>
-							<li><a href="#"><spring:message code="welcome.feedback" /></a></li>
+							<li><a href="#/showtimes"><spring:message
+										code="welcome.showtimes" /></a></li>
+							<li><a href="#/booknow"><spring:message
+										code="welcome.booknow" /></a></li>
+							<li><a href="#/aboutus"><spring:message
+										code="welcome.aboutus" /></a></li>
+							<li><a href="#/feedback"><spring:message
+										code="welcome.feedback" /></a></li>
 						</ul>
 					</nav>
 				</div>
@@ -287,7 +300,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 	<!-- banner -->
-	
+
 
 	<div ng-app="frontApp">
 		<!-- content goes here -->
@@ -297,19 +310,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="resources/early/js/jquery.slidey.js"></script>
 	<script src="resources/early/js/jquery.dotdotdot.min.js"></script>
 	<script type="text/javascript">
-	$(document).ready(function() {
-		setTimeout(function() {
-			$("#slidey").slidey({
-				interval : 8000,
-				listCount : 5,
-				autoplay : false,
-				showList : true
-			});
-			$(".slidey-list-description").dotdotdot();	
+		$(document).ready(function() {
+			setTimeout(function() {
+				$("#slidey").slidey({
+					interval : 8000,
+					listCount : 5,
+					autoplay : false,
+					showList : true
+				});
+				$(".slidey-list-description").dotdotdot();
+			})
+
 		})
-		
-	})
-		
 	</script>
 	<!-- //banner -->
 	<!-- banner-bottom -->

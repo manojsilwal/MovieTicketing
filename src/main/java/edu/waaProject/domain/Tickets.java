@@ -4,19 +4,20 @@ import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Tickets {
+
 	@Id
 	@GeneratedValue
 	private int ticketNo;
@@ -25,12 +26,22 @@ public class Tickets {
 	@JoinColumn(name = "theaterId")
 	@JsonIgnoreProperties("tickets")
 	private Theater theater;
-	@OneToMany(mappedBy = "tickets", fetch = FetchType.EAGER)
-	@JsonIgnoreProperties("tickets")
-	private List<Seats> seats;
-	@JsonFormat(pattern="yyyy-MM-dd")
+
+	// seat
+	@ElementCollection(fetch = FetchType.EAGER)
+	private List<String> seats;
+
+	public List<String> getSeats() {
+		return seats;
+	}
+
+	public void setSeats(List<String> seats) {
+		this.seats = seats;
+	}
+
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date showDate;
-	@JsonFormat(pattern="HH:MM:SS")
+	@JsonFormat(pattern = "HH:MM:SS")
 	private Time showTime;
 	@ManyToOne
 	@JoinColumn(name = "bookingId")
@@ -40,14 +51,6 @@ public class Tickets {
 	@JoinColumn(name = "showId")
 	@JsonIgnoreProperties("tickets")
 	private Show show;
-
-	public List<Seats> getSeats() {
-		return seats;
-	}
-
-	public void setSeats(List<Seats> seats) {
-		this.seats = seats;
-	}
 
 	public Booking getBooking() {
 		return booking;
@@ -87,14 +90,6 @@ public class Tickets {
 
 	public void setTheater(Theater theater) {
 		this.theater = theater;
-	}
-
-	public List<Seats> getSeat() {
-		return seats;
-	}
-
-	public void setSeat(List<Seats> seats) {
-		this.seats = seats;
 	}
 
 	public Date getShowDate() {

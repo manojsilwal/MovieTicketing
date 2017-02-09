@@ -26,6 +26,11 @@ public class Show {
 	@JoinColumn(name = "movieId")
 	@JsonIgnoreProperties("show")
 	private Movie movie;
+	
+	@ManyToOne
+	@JoinColumn(name = "theaterId")
+	@JsonIgnoreProperties("show")
+	private Theater theater;
 
 	@OneToMany(mappedBy = "show", fetch = FetchType.EAGER)
 	@JsonIgnoreProperties("show")
@@ -34,11 +39,11 @@ public class Show {
 	private int totalAvailableSheet;
 	
 	private String language;
-	@JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
+	@JsonFormat(pattern = "YYYY/MM/dd HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
 	private Date startTime;
 	
 	
-	@JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
+	@JsonFormat(pattern = "YYYY/MM/dd HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
 	private Date endTime;
 
 	public Movie getMovie() {

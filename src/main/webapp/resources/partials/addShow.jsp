@@ -2,14 +2,14 @@
 <body>
 
 	<h1>{{header}}</h1>
-	<form data-ng-submit="postData()">
-		<h3>{{headerText}}</h3>	
+	<form data-ng-submit="postData()" class="registerShow">
+		<h3>{{headerText}}</h3>
 
 		<p>
-			Language : <input type="text" data-ng-model="language">
+			Language : <input type="text" id="language" class="form-control" data-ng-model="language">
 		</p>
 		<p>
-			Total Available Sheet :<input type="text"
+			Total Available Sheet :<input id="sheets" class="form-control" type="text"
 				data-ng-model="totalAvailableSheet">
 		</p>
 
@@ -23,7 +23,7 @@
 				data-ng-model="endTime">
 		</p>
 
-		<input type="submit" id="submit" value="Submit" /><br>
+		<input type="submit" id="submit" class="btn btn-default" value="Submit" /><br>
 
 		<h4>You submitted below data through post:</h4>
 		<pre>Form data ={{list}}</pre>
@@ -31,9 +31,35 @@
 
 	<script type="text/javascript">
 		$("#datetimepic").datetimepicker();
+
+		$(".registerShow").validate(
+				{
+
+					rules : {
+						language : {
+							required : true,
+							minlength : 3
+						},
+						seats : {
+							required : true,
+							minlength : 2
+						}
+					},
+					highlight : function(element) {
+						$(element).closest('.form-group').removeClass(
+								'has-success').addClass('has-error');
+					},
+					unhighlight : function(element) {
+						$(element).closest('.form-group').removeClass(
+								'has-error').addClass('has-success');
+					}
+				});
 	</script>
 
-	
+	<script type="text/javascript">
+		$("#datetimepic1").datetimepicker();
+	</script>
+
 
 
 </body>
