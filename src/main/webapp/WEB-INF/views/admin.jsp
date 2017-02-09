@@ -92,7 +92,7 @@
 							<li><a href="#/shows">Show List</a></li>
 						</ul></li>
 
-					<li><a href="/login">Login </a></li>
+					<li><a href="#/login">Login </a></li>
 				</ul>
 
 
