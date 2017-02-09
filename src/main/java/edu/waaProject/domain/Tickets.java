@@ -21,12 +21,15 @@ public class Tickets {
 	@Id
 	@GeneratedValue
 	private int ticketNo;
+	
 	private double price;
+	
 	@ManyToOne
 	@JoinColumn(name = "theaterId")
 	@JsonIgnoreProperties("tickets")
 	private Theater theater;
-
+	
+	@JsonFormat(pattern="HH:MM:SS")
 	// seat
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> seats;
@@ -43,10 +46,12 @@ public class Tickets {
 	private Date showDate;
 	@JsonFormat(pattern = "HH:MM:SS")
 	private Time showTime;
+	
 	@ManyToOne
 	@JoinColumn(name = "bookingId")
 	@JsonIgnoreProperties("tickets")
 	private Booking booking;
+	
 	@ManyToOne
 	@JoinColumn(name = "showId")
 	@JsonIgnoreProperties("tickets")

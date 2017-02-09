@@ -11,8 +11,7 @@
 	})
 </script>
 <body>
-	<h1>{{header}}</h1>
-	<form data-ng-submit="postData()">
+	<form data-ng-submit="postData()" >
 		<h3>{{headerText}}</h3>
 		<p>
 			Name: <input type="text" data-ng-model="movie.movieName">

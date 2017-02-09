@@ -83,8 +83,7 @@
 								<tr>
 									<td>Enter Name:</td>
 									<td><div class="form-group">
-											<form:input class="form-control" type="text" name="movieName"
-												id="movieName" path="movieName" value="${movie.movieName}" />
+											<form:input class="form-control" type="text" name="movieName" id="movieName" path="movieName" value="${movie.movieName}" />
 											<div style="color: red;" id="merrors"></div>
 										</div></td>
 								</tr>

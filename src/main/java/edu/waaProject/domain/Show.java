@@ -34,11 +34,11 @@ public class Show {
 	private int totalAvailableSheet;
 	
 	private String language;
-	@JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
+	@JsonFormat(pattern = "YYYY/MM/dd HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
 	private Date startTime;
 	
 	
-	@JsonFormat(pattern = "HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
+	@JsonFormat(pattern = "YYYY/MM/dd HH:mm", shape = JsonFormat.Shape.STRING, timezone="CET")
 	private Date endTime;
 
 	public Movie getMovie() {
