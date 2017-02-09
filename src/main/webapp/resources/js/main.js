@@ -33,6 +33,11 @@ angular.module('frontApp', [ 'ngRoute' ])
 		controller : 'movieController'
 	})
 	
+	.when('/login', {
+		templateUrl : 'resources/partials/login.jsp',
+		controller : 'movieController'
+	})
+	
 	.otherwise({
 		redirectTo : '/'
 	});

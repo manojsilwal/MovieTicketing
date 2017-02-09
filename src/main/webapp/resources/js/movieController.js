@@ -86,7 +86,7 @@ function movieController($scope, $http, movieService, $routeParams){
 	
 	$scope.getMovies();
 	
-	$scope.values = movieService.getInfo();
+	$scope.values = movieService.getItems();
 
 }
 

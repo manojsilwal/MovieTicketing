@@ -4,11 +4,13 @@ movie.service("movieService", movieService);
 
 movie.service("showService", showService);
 
-/*movie.service("loginService", loginService);
-*/
+movie.service("loginService", loginService);
+
 movie.service("theaterService", theaterService);
  
 movie.service("ticketService", ticketService);
+
+movie.service("userService", userService);
 
 showService.$inject = ['$http'];
 
@@ -18,20 +20,32 @@ theaterService.$inject = ['$http'];
 
 movieService.$inject = ['$http'];
 
+userService.$inject = ['$http'];
+
 movie.controller("movieController", movieController);
 
 movieController.$inject = ['$scope','$http', 'movieService','$routeParams'
-	,'ticketService','theaterService','showService'/*'loginService'*/];
+	,'ticketService','theaterService','showService','loginService','userService'];
 
 
 //------------movie controller -----------------------
 
-function movieController($scope, $http, movieService, $routeParams, ticketService, theaterService, showService){
+function movieController($scope, $http, movieService, $routeParams, ticketService, theaterService, showService, userService){
 	
-	$scope.movieIndex = $routeParams.movieId;
-	$scope.showIndex = $routeParams.showId;
-	$scope.theaterIndex = $routeParams.theaterId;
+	$scope.users = [];
+	
 	$scope.seats = [];
+	
+	$scope.loginCheck = function(){
+		$scope.user = {
+				"email" : '',
+				"password" : ''
+		};
+		if(loginService.loginCheck($scope.user,$scope.users)){
+			alert("sucess");
+		}
+		
+	}
 	
 	$scope.getTicket = function(){
 		var totalPrice;
@@ -88,10 +102,7 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 		ticketService.setShow(show);
 		console.log(ticketService.getShow());
 	}
-	
-	$scope.movie = $scope.movies[$scope.whichMovie];
-	
-	console.log($scope.movies[$scope.whichMovie]);
+		
 		
 	//get Movies data
 	function setMovies(values){
@@ -107,15 +118,25 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 	
 	showService.getShows(setShows);
 	
+	
+	/*function setUsers(values){
+		$scope.users = values;
+	}
+	
+	userService.getUsers();*/
+	
 	//get Show data
 	function setTheaters(values){
 		$scope.theaters = values;
 	}
 	
 	theaterService.getTheaters(setTheaters);
-
+	
+	
+	
+	
+	
 }
-
 
 function ticketService($http){
 	var service = this;
@@ -237,33 +258,6 @@ function movieService($http){
     
 }
 
-function UserService($http){
-	
-	var service = this;
-	
-	service.userList = [];
-	
-	service.user = {};
-	
-	service.getUser = function() {
-        return service.user;
-    }
-
-    service.setUser = function(user) {
-    	service.user = user;
-    	console.log(service.user);
-    }
-	
-	service.getUsers = function(init) {           
-         $http({method: 'GET', url: 'user'}).success(function(data, status, headers, config){
-            init(data);
-    	    }).
-    	    error(function(data, status, headers, config) {
-    	    });
-	}
-	
-}
-
 
 function showService($http){
 	
@@ -292,13 +286,30 @@ function showService($http){
 	
 }
 
+/*function userService($http){
+	var service = this;
+	service.getUsers = function(){
+		
+	}
+}
+*/
 
-/*function loginService($http){
+function loginService($http){
+		
 	
 		var service = this;
+				
+		service.loginCheck = function(user, userList){
+			userList.forEach(
+					function(value) {
+						if(value.username.equals(user.email)&&value.password.equals(user.password)){
+							service.loggedIn = true;
+							return true;
+						}
+					}
+				);
+			service.loggedIn = false;
+			return false;
+		}
 		
-		service.user = {};
-		
-		service.user = 
-		
-}*/
+}
