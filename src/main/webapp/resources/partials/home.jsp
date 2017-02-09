@@ -127,6 +127,7 @@
 								</div>
 								<div class="mid-2 agile_mid_2_home">
 									<a class="btn btn-warning" ng-click="setMovie(movie)" href="#/theater">Book Now</a>
+
 									<div class="clearfix"></div>
 								</div>
 							</div>
@@ -186,7 +187,7 @@
 									<p class="fexi_header_para fexi_header_para1">
 										<span>Why to wait? <label>:</label>
 										</span>
-										<button id="myButton" class="btn btn-warning">Book
+										<button id="myButton" onclick="mytest()" class="btn btn-warning">Book
 											Now</button>
 									</p>
 								</div>

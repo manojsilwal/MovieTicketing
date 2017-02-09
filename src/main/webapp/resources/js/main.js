@@ -42,6 +42,11 @@ angular.module('frontApp', [ 'ngRoute' ])
 		controller : 'movieController'
 	})
 	
+	.when('/register', {
+		templateUrl : 'resources/partials/userregister.jsp',
+		controller : 'movieController'
+	})
+	
 	.otherwise({
 		redirectTo : '/'
 	});
