@@ -126,7 +126,8 @@
 									</h6>
 								</div>
 								<div class="mid-2 agile_mid_2_home">
-									<a class="btn btn-warning" id="myButton" onclick="mytest()" ng-click="setMovie(movie)">Book Now</a>
+									<a class="btn btn-warning" ng-click="setMovie(movie)">Book Now</a>
+
 									<div class="clearfix"></div>
 								</div>
 							</div>

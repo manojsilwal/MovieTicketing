@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<body>
+
+<div class="col-md-4 col-md-offset-4">
 
 	<h1>{{header}}</h1>
 	<form data-ng-submit="postData()" class="registerShow">
 		<h3>{{headerText}}</h3>
 
 		<p>
-			Language : <input type="text" id="language" class="form-control" data-ng-model="language">
+			Language : <input type="text" id="language" class="form-control"
+				data-ng-model="language">
 		</p>
 		<p>
-			Total Available Sheet :<input id="sheets" class="form-control" type="text"
-				data-ng-model="totalAvailableSheet">
+			Total Available Sheet :<input id="sheets" class="form-control"
+				type="text" data-ng-model="totalAvailableSheet">
 		</p>
 
 
@@ -23,7 +24,8 @@
 				data-ng-model="endTime">
 		</p>
 
-		<input type="submit" id="submit" class="btn btn-default" value="Submit" /><br>
+		<input type="submit" id="submit" class="btn btn-default"
+			value="Submit" /><br>
 
 		<h4>You submitted below data through post:</h4>
 		<pre>Form data ={{list}}</pre>
@@ -61,6 +63,4 @@
 	</script>
 
 
-
-</body>
-</html>
+</div>

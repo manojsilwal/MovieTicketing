@@ -17,7 +17,7 @@
 
 				<td><a href="#/users/{{$index}}"> <span
 						class="glyphicon glyphicon-info-sign"></span>
-				</a> <a href="#"><span class="glyphicon glyphicon-remove"></span> </a> <a
+				</a> <a ng-click="delete(user.id)"><span class="glyphicon glyphicon-remove"></span> </a> <a
 					href="#"> <span class="glyphicon glyphicon-pencil"></span>
 				</a></td>
 			</tr>

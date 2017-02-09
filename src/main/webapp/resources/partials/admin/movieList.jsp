@@ -18,15 +18,13 @@
 						</div>
 
 						<div class="caption">
-							<h3>
 								<a data-ng-href="#/movies/{{$index}}">
 									<p>{{movie.movieName}}</p>
 								</a>
-							</h3>
 							<p>Some sample text. Some sample text.</p>
 
 							<p>
-								<a data-ng-click="delete(movie.movieId)" data-ng-href="#/movies" 
+						<a data-ng-click="delete(movie.movieId)" data-ng-href="#/movies" 
 									class="btn btn-danger">Delete</a>
 								<a data-ng-href="#/updateMovie/{{$index}}" class="btn btn-primary">Update</button>
 							</p>

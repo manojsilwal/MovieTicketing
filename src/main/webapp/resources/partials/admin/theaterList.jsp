@@ -13,15 +13,23 @@
 			<tr ng-repeat="theater in theaters" class="bg-success">
 				<td>{{ $index + 1 }}</td>
 
-				<td><a href="#/theaters/{{$index}}">
+				<td>
+					<a href="#/theaters/{{$index}}">
 						<p>Name: {{theater.tname}}</p>
-				</a></td>
+					</a>
+				</td>
 
-				<td><a href="#/theaters/{{$index}}"> <span
-						class="glyphicon glyphicon-info-sign"></span>
-				</a> <a href="#"><span class="glyphicon glyphicon-remove"></span> </a> <a
-					href="#"> <span class="glyphicon glyphicon-pencil"></span>
-				</a></td>
+				<td>
+					<a href="#/theaters/{{$index}}"> 
+						<span class="glyphicon glyphicon-info-sign"></span>
+					</a> 
+					<a data-ng-href="index#/theaters" ng-click = "delete(theater.theaterId)">
+						<span class="glyphicon glyphicon-remove"></span> 
+					</a> 
+					<a href="#"> 
+						<span class="glyphicon glyphicon-pencil"></span>
+					</a>
+				</td>
 			</tr>
 		</table>
 	</div>

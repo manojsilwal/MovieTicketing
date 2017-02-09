@@ -19,6 +19,7 @@ function theaterController($scope, $http, theaterService, $routeParams){
 	$scope.delete = function(index){
 		theaterService.delete(index).success(function(data, status, headers, config) {
 			console.log(data);
+			location.href="/FinalProject/admin#/theaters";
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
 		});
@@ -59,6 +60,7 @@ function theaterController($scope, $http, theaterService, $routeParams){
 		
 		theaterService.submit(theater).success(function(data, status, headers, config) {
 			$scope.list.push(data);
+			location.href="/FinalProject/admin#/theaters";
 		}).error(function(data, status, headers, config) {
 			alert( "Exception details: " + JSON.stringify({data: data}));
 		});

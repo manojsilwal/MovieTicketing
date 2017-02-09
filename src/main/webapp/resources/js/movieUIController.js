@@ -12,8 +12,7 @@ movie.service("theaterService", theaterService);
 movie.service("ticketService", ticketService);
 
 
-//movie.service("userService", userService);
-
+movie.service("usersService", userService);
 showService.$inject = ['$http'];
 
 ticketService.$inject = [ '$http' ];
@@ -22,31 +21,46 @@ theaterService.$inject = [ '$http' ];
 
 movieService.$inject = [ '$http' ];
 
-//userService.$inject = ['$http'];
+usersService.$inject = ['$http'];
 
 movie.controller("movieController", movieController);
 
 
 movieController.$inject = ['$scope','$http', 'movieService','$routeParams'
-	,'ticketService','theaterService','showService','loginService'];
+	,'ticketService','theaterService','showService','loginService','usersService','$location'];
 
 // ------------movie controller -----------------------
 
-function movieController($scope, $http, movieService, $routeParams, ticketService, theaterService, showService, userService){
+function movieController($scope, $http, movieService, $routeParams, ticketService, theaterService, showService,loginService, usersService,$location){
+	
+	//usersService.getUsers();
+	
+	
+	//theaterService.getThreater();
 	
 	$scope.users = [];
 	
 	$scope.seats = [];
 	
+	
+	
+	$scope.isLoggedIn = function(){
+		return theaterService.getLoggedIn();
+	}
+	
 	$scope.loginCheck = function(){
-		$scope.user = {
-				"email" : '',
-				"password" : ''
+		var user = {
+				"email" : $scope.email,
+				"password" : $scope.password
 		};
-		if(loginService.loginCheck($scope.user,$scope.users)){
-			alert("sucess");
+		console.log(user);
+		console.log($scope.users);
+		if(theaterService.loginCheck(user,$scope.users)){
+			$location.path("/");
 		}
-		
+		else{
+			$location.path("/login");
+		}
 	}
 	
 	$scope.createTicket = function(){
@@ -101,9 +115,15 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 	$scope.movies = [];
 
 	$scope.theaters = [];
-
-	$scope.setMovie = function(movie) {
-		ticketService.setMovie(movie);
+	
+	$scope.setMovie = function(movie){
+		if(!$scope.isLoggedIn()){
+			$location.path("/login");
+		}
+		else{
+			ticketService.setMovie(movie);
+			$location.path("/theater");
+		}
 	}
 
 	$scope.setTheater = function(theater) {
@@ -135,18 +155,28 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 
 	
 	
-	/*function setUsers(values){
+	function setUsers(values){
 		$scope.users = values;
 	}
 	
-	userService.getUsers();*/
+	//usersService.getUsers();
 	
 	//get Show data
 	function setTheaters(values){
 		$scope.theaters = values;
 	}
+	
+	
+	function setUsers(values){
+		$scope.users = values;
+	}
+	
+	theaterService.getUserData(setUsers);
+	
 
 	theaterService.getTheaters(setTheaters);
+	
+	
 	
 	
 	
@@ -218,30 +248,90 @@ function ticketService($http){
 	}
 }
 
-function theaterService($http) {
-	var service = this;
+function userService(){
+	
+}
 
+
+function theaterService($http,$location){
+	var service = this;
+	
+	var user = {};
+	
+	service.getUser = function(){
+		return users;
+	}
+	
+	service.setUser = function(value){
+		return user = value;
+	}
+	
+	var users = [];
+	
+	service.getUsers = function(){
+		return users;
+	}
+	
+	service.setUsers = function(values){
+		return users = values;
+	}
+	
+	
+	
+	service.getUserData = function(init) {           
+        return $http({method: 'GET', url: 'user'}).success(function(data, status, headers, config){
+        	service.setUsers(data);
+            console.log(data);
+            init(data);
+    	    }).
+    	    error(function(data, status, headers, config) {
+    	    });
+	}
+	
+	
+	
+	
 	var itemList = [];
+	
+	service.loggedIn = false; 
+	
 
 	service.getItems = function() {
 		return itemList;
 	}
 
-	service.setItems = function(value) {
-		itemList = value;
-		console.log(itemList);
+    service.setItems = function(value) {
+    	itemList = value;
+    	console.log(itemList);
+    }
+	
+    service.getLoggedIn = function(){
+    	return service.loggedIn;
+    }
+    
+    service.loginCheck = function(user, userList){
+		userList.forEach(
+				function(value) {
+					if(value.email === user.email && value.password === user.password){
+						service.loggedIn = true;
+						service.setUser(value);
+					}
+					else{
+						service.loggedIn = false;
+					}
+				}
+			);
+		return service.loggedIn;
 	}
-
-	service.getTheaters = function(init) {
-		return $http({
-			method : 'GET',
-			url : 'theater'
-		}).success(function(data, status, headers, config) {
-			service.setItems(data);
-			console.log(data);
-			init(data);
-		}).error(function(data, status, headers, config) {
-		});
+    
+	service.getTheaters = function(init) {           
+        return $http({method: 'GET', url: 'theater'}).success(function(data, status, headers, config){
+        	service.setItems(data);
+            console.log(data);
+            init(data);
+    	    }).
+    	    error(function(data, status, headers, config) {
+    	    });
 	}
 }
 
@@ -308,22 +398,6 @@ function showService($http) {
 
 }
 
-/*
- * function loginService($http){
- * 
- * var service = this;
- * 
- * service.user = {};
- * 
- * service.user = }
- */
-/*function userService($http){
-	var service = this;
-	service.getUsers = function(){
-		
-	}
-}
-*/
 
 function loginService($http){
 		
@@ -343,4 +417,11 @@ function loginService($http){
 			return false;
 		}
 		
+}
+
+function usersService($http){
+	var service = this;
+	service.getUsers = function(){
+		
+	};
 }

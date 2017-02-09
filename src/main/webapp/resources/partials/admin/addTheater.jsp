@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <body>	
-	<div class="addForm">
+	<div class="col-md-4 col-md-offset-4">
 		<h1>Add Theater</h1>
 		<form data-ng-submit="postData()">
 			<div class="form-group">

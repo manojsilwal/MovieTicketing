@@ -8,6 +8,7 @@
 		</div>
 		<div class="col-md-1">
 			<div class="responsive-circle nyc-circle">
+
 				<a href="#/booknow" ng-click="setTheater(theater);">
 					<div class="circle-inner" ng-repeat="show in shows">
 						<p id="mytime">{{show.startTime}}</p>
