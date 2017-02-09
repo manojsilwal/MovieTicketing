@@ -2,46 +2,65 @@
 <body>
 
 	<h1>{{header}}</h1>
-	<form data-ng-submit="postData()">
+	<form data-ng-submit="postData()" class="registerShow">
 		<h3>{{headerText}}</h3>
 
-		<!-- <div class="container">
-			<input type="text" id="datetimepic"/>
-		
-		</div> -->
-
 		<p>
-			Language : <input type="text" data-ng-model="language">
+			Language : <input type="text" id="language" class="form-control" data-ng-model="language">
 		</p>
 		<p>
-			Total Available Sheet :<input type="text"
+			Total Available Sheet :<input id="sheets" class="form-control" type="text"
 				data-ng-model="totalAvailableSheet">
 		</p>
 
 
 		<p>
-			Start time :<input type="text" class="form-control" id="datetimepic" data-ng-model="startTime" />
+			Start time :<input type="text" class="form-control" id="datetimepic"
+				data-ng-model="startTime" />
 		</p>
 		<p>
 			End Time :<input class="form-control" id="datetimepic1" type="text"
 				data-ng-model="endTime">
 		</p>
 
-		<input type="submit" id="submit" value="Submit" /><br>
+		<input type="submit" id="submit" class="btn btn-default" value="Submit" /><br>
 
 		<h4>You submitted below data through post:</h4>
 		<pre>Form data ={{list}}</pre>
 	</form>
 
-<script type="text/javascript">
+	<script type="text/javascript">
+		$("#datetimepic").datetimepicker();
 
-	$("#datetimepic").datetimepicker();
-</script>
+		$(".registerShow").validate(
+				{
 
-<script type="text/javascript">
+					rules : {
+						language : {
+							required : true,
+							minlength : 3
+						},
+						seats : {
+							required : true,
+							minlength : 2
+						}
+					},
+					highlight : function(element) {
+						$(element).closest('.form-group').removeClass(
+								'has-success').addClass('has-error');
+					},
+					unhighlight : function(element) {
+						$(element).closest('.form-group').removeClass(
+								'has-error').addClass('has-success');
+					}
+				});
+	</script>
 
-	$("#datetimepic1").datetimepicker();
-</script>
+	<script type="text/javascript">
+		$("#datetimepic1").datetimepicker();
+	</script>
+
+
 
 </body>
 </html>
