@@ -7,12 +7,12 @@ angular.module('frontApp',['ngRoute'])
     	controller: 'movieController'
     	})
     	
-    .when('/theater',{
+    .when('/theater/:movieId',{
     	templateUrl:'resources/partials/MyTheaters.jsp',
     	controller: 'movieController'
     	})
     
-    .when('/booknow',{
+    .when('/booknow/:theaterId',{
     	templateUrl:'resources/partials/BookNow.jsp',
     	controller: 'movieController'
     	})

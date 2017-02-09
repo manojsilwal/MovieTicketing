@@ -15,6 +15,8 @@ function movieController($scope, $http, movieService, $routeParams){
 	$scope.actors = [];
 	$scope.movies = [];
 	
+	$scope.values = [];
+	
 	//add Actors
 	$scope.addActors = function(){
 		$scope.actors.push($scope.actor);
@@ -73,6 +75,7 @@ function movieController($scope, $http, movieService, $routeParams){
 	$scope.getMovies = function(){
 		movieService.getMovies().success(function(data, status, headers, config){
         $scope.movies = data;
+        movieService.setInfo(data);
         console.log(data);
 	    }).
 	    error(function(data, status, headers, config) {
@@ -83,13 +86,24 @@ function movieController($scope, $http, movieService, $routeParams){
 	
 	$scope.getMovies();
 	
-	
+	$scope.values = movieService.getInfo();
+
 }
 
 function movieService($http){
 	var service = this;
-	
-	itemList = [];
+		
+	var itemList = [];
+
+
+	service.getInfo = function() {
+        return itemList;
+    }
+
+    service.setInfo = function(value) {
+    	itemList = value;
+    	console.log(itemList);
+    }
 		
 	service.getMovies = function() {           
         return $http({method: 'GET', url: 'movies'});
