@@ -13,11 +13,33 @@
 
 <link rel="stylesheet" href="resources/css/style.css">
 
-<link rel="stylesheet" href="resources/css/bootstrap-theme.min.css">
+<!-- bootstrap css -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
+
+<link rel="stylesheet" href="resources/css/jquery.datetimepicker.css">
+
+
+<!--bootstrap date-time picker-->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.45/css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" />
+<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script type="text/javascript"
+	src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.min.js"></script>
 
 <title>Add New Movie</title>
 </head>
@@ -43,21 +65,45 @@
 			<ul class="nav navbar-nav">
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">User <span class="caret"></span></a>
+					aria-expanded="false"> User <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="admin#/addUser">Add</a></li>
-						<li><a href="#/users">User List</a></li>
+						<!-- <li><a href="#/addUser">Add</a></li>
+						<li><a href="#/users">User List</a></li> -->
+
+						<!-- 						<li><a href="admin#/addUser">Add</a></li>
+ -->
+						<li><a href="/FinalProject/admin#/addUser">Add</a></li>
+						<li><a href="/FinalProject/admin#/users">User List</a></li>
 
 					</ul></li>
 
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" role="button" aria-haspopup="true"
-					aria-expanded="false">Movie <span class="caret"></span></a>
+					aria-expanded="false"> Movie <span class="caret"></span></a>
 					<ul class="dropdown-menu">
 						<li><a href="/FinalProject/addMovie">Add</a></li>
-						<li><a href="admin#/movies">Movie List</a></li>
-
+						<li><a href="/FinalProject/admin#/movies">Movie List</a></li>
 					</ul></li>
+
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false"> Theater <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/FinalProject/admin#/addTheater">Add</a></li>
+						<li><a href="/FinalProject/admin#/theaters">Movie List</a></li>
+
+						<!-- <li><a href="#/addTheater">Add</a></li>
+						<li><a href="#/theaters">Theater List</a></li> -->
+					</ul></li>
+
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" role="button" aria-haspopup="true"
+					aria-expanded="false"> Show <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<li><a href="/FinalProject/admin#/addShow">Add</a></li>
+						<li><a href="/FinalProject/admin#/shows">Show List</a></li>
+					</ul></li>
+
 				<li><a href="/login">Login </a></li>
 			</ul>
 
@@ -71,50 +117,56 @@
 			<div class="col-md-4 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 class="panel-title">Please Sign Up</h3>
+						<h3 class="panel-title">Please fill the data for adding movie</h3>
 					</div>
 					<div class="panel-body">
 
 
-						<form:form action="addMovie" method="post" modelAttribute="movie"
-							enctype="multipart/form-data">
+						<form:form name="myform" action="addMovie" method="post"
+							modelAttribute="movie" enctype="multipart/form-data"
+							onsubmit="return validation();">
 							<table>
 								<tr>
-									<td>Enter Name:</td>
+									<td>Movie Name:</td>
 									<td><div class="form-group">
-											<form:input class="form-control" type="text" name="movieName"
-												id="movieName" path="movieName" value="${movie.movieName}"
-												 />
+
+											<form:input class="form-control" type="text" name="movieName" id="movieName" path="movieName" value="${movie.movieName}" />
+											<div style="color: red;" id="merrors"></div>
 										</div></td>
 								</tr>
 								<tr>
-									<td>Enter Director Name:</td>
+									<td>Director Name:</td>
 									<td><div class="form-group">
 											<form:input class="form-control" type="text" name="director"
-												id="director" path="director" value="${movie.director}" required="required"/>
+
+												id="director" path="director" value="${movie.director}" />
+											<div style="color: red;" id="derrors"></div>
 										</div></td>
 								</tr>
 								<tr>
-									<td>Enter Description:</td>
+									<td>Description:</td>
 									<td><div class="form-group">
 											<form:textarea rows="5" cols="30" class="form-control"
 												type="text" name="description" id="description"
 												path="description" value="${movie.description}" />
+											<div style="color: red;" id="dserrors"></div>
 										</div></td>
 								</tr>
 								<tr>
-									<td>Enter Release Date:</td>
+									<td>Release Date:</td>
 									<td><div class="form-group">
 											<form:input class="form-control" type="date"
 												name="releaseDate" id="releaseDate" path="releaseDate"
 												value="${movie.releaseDate}" />
+											<div style="color: red;" id="rerrors"></div>
 										</div></td>
 								</tr>
 								<tr>
-									<td>Enter Actors Name:</td>
+									<td>Actors Name:</td>
 									<td><div class="form-group">
 											<form:input class="form-control" type="text" name="actors"
 												id="actors" path="actors" value="${movie.actors}" />
+											<div style="color: red;" id="aerrors"></div>
 										</div></td>
 								</tr>
 								<tr>
@@ -122,6 +174,7 @@
 									<td><div class="form-group">
 											<form:input class="input-group form-control" type="file"
 												path="image" />
+											<div style="color: red;" id="cerrors"></div>
 										</div></td>
 								</tr>
 								<tr>
@@ -138,6 +191,50 @@
 		</div>
 	</div>
 
+
+	<script>
+		function validation() {
+			if (document.myform.movieName.value == ""
+					&& document.myform.director.value == ""
+					&& document.myform.description.value == ""
+					&& document.myform.releaseDate.value == ""
+					&& document.myform.actors.value == ""
+					&& document.myform.image.value == "") {
+				document.getElementById('merrors').innerHTML = "Please enter a Movie Name";
+				document.getElementById('derrors').innerHTML = "Please enter a Director Name";
+				document.getElementById('dserrors').innerHTML = "Please enter a Description";
+				document.getElementById('rerrors').innerHTML = "Please enter a Release Date";
+				document.getElementById('aerrors').innerHTML = "Please enter a Actor Name";
+				document.getElementById('cerrors').innerHTML = "Please enter a Valid Image";
+				return false;
+			}
+			if (document.myform.movieName.value == "") {
+				document.getElementById('merrors').innerHTML = "Please enter a Movie Name";
+				return false;
+			}
+			if (document.myform.director.value == "") {
+				document.getElementById('derrors').innerHTML = "Please enter a Director Name";
+				return false;
+			}
+			if (document.myform.description.value == "") {
+				document.getElementById('dserrors').innerHTML = "Please enter a Description";
+				return false;
+			}
+			if (document.myform.releaseDate.value == "") {
+				document.getElementById('rerrors').innerHTML = "Please enter a Release Date";
+				return false;
+			}
+			if (document.myform.actors.value == "") {
+				document.getElementById('aerrors').innerHTML = "Please enter a Actor Name";
+				return false;
+			}
+			if (document.myform.image.value == "") {
+				document.getElementById('cerrors').innerHTML = "Please enter a Valid Image";
+				return false;
+			}
+		}
+	</script>
+
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<!-- bootstrap js -->
 	<script src="resources/js/bootstrap.min.js"></script>
@@ -145,11 +242,22 @@
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.js"></script>
+
+	<!--bootstrap date-time picker-->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.45/js/bootstrap-datetimepicker.min.js"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
 	<script src="resources/js/app.js"></script>
+
+	<script src="resources/js/jquery.datetimepicker.full.min.js"></script>
+
+
 	<script src="resources/js/userController.js"></script>
 	<script src="resources/js/movieController.js"></script>
+
+	<script src="resources/js/theaterController.js"></script>
+	<script src="resources/js/showController.js"></script>
 
 </body>
 </html>

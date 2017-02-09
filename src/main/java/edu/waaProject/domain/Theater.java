@@ -19,18 +19,6 @@ public class Theater {
 	@OneToMany(mappedBy = "theater", fetch = FetchType.EAGER)
 	@JsonIgnoreProperties("theater")
 	private List<Tickets> tickets;
-	
-	@OneToMany(mappedBy = "theater", fetch = FetchType.EAGER)
-	@JsonIgnoreProperties("theater")
-	private List<Show> show;
-
-	public List<Show> getShow() {
-		return show;
-	}
-
-	public void setShow(List<Show> show) {
-		this.show = show;
-	}
 
 	private String tname;
 

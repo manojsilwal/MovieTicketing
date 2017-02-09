@@ -10,7 +10,7 @@ movie.service("theaterService", theaterService);
  
 movie.service("ticketService", ticketService);
 
-movie.service("userService", userService);
+//movie.service("userService", userService);
 
 showService.$inject = ['$http'];
 
@@ -20,12 +20,12 @@ theaterService.$inject = ['$http'];
 
 movieService.$inject = ['$http'];
 
-userService.$inject = ['$http'];
+//userService.$inject = ['$http'];
 
 movie.controller("movieController", movieController);
 
 movieController.$inject = ['$scope','$http', 'movieService','$routeParams'
-	,'ticketService','theaterService','showService','loginService','userService'];
+	,'ticketService','theaterService','showService','loginService'];
 
 
 //------------movie controller -----------------------
@@ -47,6 +47,10 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 		
 	}
 	
+	$scope.createTicket = function(){
+		ticketService.postData();
+	}
+	
 	$scope.getTicket = function(){
 		var totalPrice;
 		$scope.ticket = ticketService.getTicket();
@@ -54,10 +58,10 @@ function movieController($scope, $http, movieService, $routeParams, ticketServic
 		$scope.seat = ticketService.getSeat();
 		
 		angular.forEach($scope.seat, function(value, key){
-			totalPrice *= 300;
+			totalPrice = 300;
 		   });
 				
-		$scope.ticket.price = totalPrice
+		$scope.ticket.price = totalPrice;
 		
 		console.log($scope.ticket);
 		console.log($scope.price);
